@@ -1,0 +1,133 @@
+page{
+  background-color: #eeeeee;
+}
+.head-nav{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 10px #eeeeee solid;
+  border-top: 1px #eeeeee solid;
+  background-color: white;
+}
+.nav-1{
+  position: relative;
+  width:70%;
+  left: 15%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-2{
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-sty{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+  color: #4a4a4a;
+}
+.nav-hover{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+  color: #9c855c;
+  border-bottom: 2px #9c855c solid;
+}
+.body{
+  
+  width: 70%;
+  margin-left: 15%;
+  
+  
+}
+.body-view{
+ margin-top: 70rpx;
+
+}
+.body-img{
+ 
+  width: 100%;
+  height: 150rpx;
+  background-size: 100% 100%;
+}
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 1px solid #777;
+  text-align: center;
+  line-height: 40px;
+  background-color: #fff;
+}
+
+
+.swiper-tab-list {
+  font-size: 13px;
+  display: inline-block;
+  width: 33.3%;
+  color: #777;
+}
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.swiper-box view {
+  text-align: center;
+}
+.img-view1{
+  height: 100%;
+  width: 70%;
+  float: left;
+}
+.img-view2{
+
+  height: 100%;
+  width: 30%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.view2-text{
+  color: white;
+  font-size: 40rpx;
+}
+.view1-text1{
+  color: white;
+  position: relative;
+  top: 20rpx;
+}
+.view1-text2{
+  color: white;
+  position: relative;
+  top: -10rpx;
+}
+.img-view1-1{
+  height: 65%;
+  width: 100%;  
+}
+.img-view1-2{
+ height: 35%;
+ width: 100%;
+
+}
+.img-fixed{
+  position: fixed;
+  height:90rpx;
+  width: 170rpx;
+  z-index: 2;
+ 
+  
+}

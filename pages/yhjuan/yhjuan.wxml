@@ -1,0 +1,100 @@
+<view class="head-nav">
+  <view class="nav-1">
+    <view class="nav-2">
+      <view class="nav-{{currentTab==0?'hover':'sty'}}" data-current="0" bindtap="swichNav">未使用</view>
+    </view>
+    <view class="nav-2">
+      <view class="nav-{{currentTab==1?'hover':'sty'}}" data-current="1" bindtap="swichNav">已过期</view>
+    </view>
+    <view class="nav-2">
+      <view class="nav-{{currentTab==2?'hover':'sty'}}" data-current="2" bindtap="swichNav">已使用</view>
+    </view>
+  </view> 
+</view>
+<view style="height:{{5*150}}px">
+  <swiper current="{{currentTab}}" class="swiper-box"  bindchange="bindChange">
+    <swiper-item >
+      <view class="body"   >
+         
+          <block wx:for="{{wsyyhj}}" wx:key="id">
+                <view class="body-view" >
+                    <view class="body-img" style="background-image:url({{url1+'/images/wsyyhj.png'}})" >
+                      <view class="img-view1">
+                        <view class="img-view1-1">
+                           <text class="view1-text1" style="font-size:30rpx;">￥</text>                                                                      
+                              <text class="view1-text1" style="font-size:60rpx;">{{item.price}}</text>                                    
+                           <text class="view1-text1" style="font-size:35rpx;letter-spacing:5rpx;">元优惠劵</text>  
+                        </view>
+                        <view class="img-view1-2">
+                           <text class="view1-text2" style="font-size:25rpx;">有效期至：{{item.overtime}}</text>  
+                        </view>
+                      </view>
+                      <view class="img-view2">
+                        <text class="view2-text">立减</text>
+                        <text class="view2-text">{{item.price}}元</text> 
+                      </view>
+                    </view>
+                </view>
+              
+          </block>
+      </view>
+    </swiper-item>
+    <swiper-item >
+      <view class="body"  style="height:{{ygqyhj.length*150}}px">
+         
+          <block wx:for="{{ygqyhj}}" wx:if="{{currentTab!=0}}" wx:key="id">
+       
+            
+                <view class="body-view" >
+                
+                    <view class="body-img" style="background-image:url({{url1+'/images/ysyyj.png'}})" >
+                     
+                      <view class="img-view1">
+                       <image class="img-fixed" src="{{url1+'/images/已过期.png'}}"></image>
+                        <view class="img-view1-1">
+                           <text class="view1-text1" style="font-size:30rpx;">￥</text>                                                                      
+                              <text class="view1-text1" style="font-size:60rpx;">{{item.price}}</text>                                    
+                           <text class="view1-text1" style="font-size:35rpx;letter-spacing:5rpx;">元优惠劵</text>  
+                        </view>
+                        <view class="img-view1-2">
+                           <text class="view1-text2" style="font-size:25rpx;">有效期至：{{item.overtime}}</text>  
+                        </view>
+                      </view>
+                      <view class="img-view2">
+                        <text class="view2-text">立减</text>
+                        <text class="view2-text">{{item.price}}元</text> 
+                      </view>
+                    </view>
+                </view>
+              
+          </block>
+      </view>
+    </swiper-item>
+     <swiper-item  style="height:{{ysyyhj.length*150}}px">
+      <view class="body"  >
+         
+          <block wx:for="{{ysyyhj}}" wx:if="{{currentTab!=0}}" wx:key="id">
+                <view class="body-view" >
+                    <view class="body-img" style="background-image:url({{url1+'/images/ysyyj.png'}})" >
+                      <view class="img-view1">
+                      <image class="img-fixed" src="{{url1+'/images/已使用.png'}}"></image>
+                        <view class="img-view1-1">
+                           <text class="view1-text1" style="font-size:30rpx;">￥</text>                                                              
+                              <text class="view1-text1" style="font-size:60rpx;">{{item.price}}</text>                                    
+                           <text class="view1-text1" style="font-size:35rpx;letter-spacing:5rpx;">元优惠劵</text>  
+                        </view>
+                        <view class="img-view1-2">
+                           <text class="view1-text2" style="font-size:25rpx;">有效期至：{{item.overtime}}</text>  
+                        </view>
+                      </view>
+                      <view class="img-view2">
+                        <text class="view2-text">立减</text>
+                        <text class="view2-text">{{item.price}}元</text> 
+                      </view>
+                    </view>
+                </view>
+          </block>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

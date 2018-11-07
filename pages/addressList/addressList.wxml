@@ -1,0 +1,51 @@
+<radio-group class="address-item" bindchange="radioChange">
+  <view class="address-item-box" wx:for="{{addresslist}}" wx:key="id" wx:for-index="i">
+    <view class="address-message" id="{{item.id}}" bindtap="{{onmsg?'chooseAddress':''}}">
+      <view class="address-user-message">
+        <view class="address-name">
+          <text>{{item.receiver_name}}</text>
+        </view>
+        <view class=" address-phone">
+          <text>{{item.receiver_phone}}</text>
+        </view>
+      </view>
+      <view class="address-address">
+        <text>{{item.province}}{{item.city}}{{item.district}}{{item.address}}</text>
+      </view>
+    </view>
+    <view class="address-edit">
+      <view>
+        <view class="address-checkbox" data-id="{{item.id}}" bindtap="radioChange">
+          <!-- <label class='checkbox'> -->
+            <!-- <checkbox value="{{item.id}}" data-id='{{item.id}}' hidden="false" /> -->
+            <image src="{{resourceurl}}{{item.is_default=='1'?'11':'00'}}.png" data-id='{{item.id}}'></image>
+            <text class="{{item.is_default=='1'?'common-color':''}}">设为默认</text>
+          <!-- </label> -->
+        </view>
+      </view>
+      <view class="address-edit-option">
+        <view class="address-edit-redact">
+          <navigator url="../editAddress/editAddress?id={{item.id}}">
+            <image src="{{resourceurl}}dibianji.png">
+            </image>
+            <text>编辑</text>
+          </navigator>
+        </view>
+        <view class=" address-edit-delete" bindtap="modalShow" id="{{item.id}}">
+          <image src="{{resourceurl}}dishanchu.png">
+          </image>
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</radio-group>
+<view class="common-bottom" bindtap="addAddress">
+    <text>新增地址</text>
+</view>
+<view class="page__bd">
+  <modal title="确认" confirm-text="确定" data-id="{{addressId}}" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="deleteAddress" bindcancel="modalHidden">
+    确认删除吗？
+  </modal>
+</view>
+<Toast id="Toast"></Toast>

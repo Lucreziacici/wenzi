@@ -1,0 +1,52 @@
+<!--pages/collect/collect.wxml-->
+<SuspendedNavigation></SuspendedNavigation>
+<Toast id="Toast"></Toast>
+<view class='tab'>
+  <block wx:for="{{tabList}}" wx:for-index="idx" wx:key="id">
+    <text class="{{activedTab==idx?'tab-active':''}}" data-id="{{idx}}" bindtap='switchTab'>{{item.title}}</text>
+  </block>
+</view>
+<view class='commodity' wx:if="{{activedTab==0}}">
+  <view class='commodity_list'>
+    <block wx:for="{{productList}}" wx:key="key">
+      <Commodity title='{{item.goods_name}}' commodity="{{item}}" commodityid="{{item.goods_id}}" img="{{item.main_image}}" price="{{item.show_price}}" isApprove='{{isApprove}}' item="{{item}}"></Commodity>
+    </block>
+  </view>
+  <view wx:if="{{noresult}}" class='noresult'>
+      <image src='{{resourceurl}}history_icon.png'></image>
+      <text>o(╥﹏╥)o您还没有收藏过的商品</text>
+      <navigator class='link' hover-class='none' url='../productList/productList'>去逛逛吧</navigator>
+    </view>
+</view>
+<view class='commodity' wx:if="{{activedTab==1}}">
+  <view class='brand_list'>
+    <view wx:for="{{brandList}}" class='brand_item'>
+      <view class='brand_title'>
+        <image src='{{item.brand_logo}}'></image>
+        <text>{{item.brand_name}}</text>
+      </view>
+      <view class='brand_more'>
+        <view wx:for="{{item.sales_goods_list}}" wx:for-item="goods" class='brand_commodityitem'>
+          <navigator class='brand_commodityitem_url' hover-class='none' url='../product/product?id={{goods.goods_id}}'>
+            <image src='{{goods.main_image}}'></image>
+            <text class='text'>{{goods.goods_name}}</text>
+            <text class='price'>￥{{goods.show_price}}</text>
+            <!-- <text wx:if="{{isApprove}}" class='price'>￥{{goods.show_price}}</text>
+            <text wx:else class='price'>￥***</text> -->
+          </navigator>
+        </view>
+        <view class='brand_commodityitem'>
+          <navigator class='brand_commodityitem_url more' hover-class='none' url='../brand/brand?brand_code={{item.brand_code}}'>
+            <text>查看更多</text>
+          </navigator>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{noresult2}}" class='noresult'>
+      <image src='{{resourceurl}}history_icon.png'></image>
+      <text>o(╥﹏╥)o您还没有收藏过的品牌</text>
+      <navigator class='link' hover-class='none' url='../productList/productList'>去逛逛吧</navigator>
+    </view>
+
+  </view>
+</view>

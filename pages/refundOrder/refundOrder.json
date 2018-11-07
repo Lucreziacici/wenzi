@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "退款单列表",
+  "usingComponents": {
+    "SuspendedNavigation": "/components/SuspendedNavigation/SuspendedNavigation",
+    "Toast": "/components/Toast/Toast",
+    "Orderitem": "/components/Orderitem/Orderitem"
+  }
+}

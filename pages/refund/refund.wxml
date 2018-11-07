@@ -1,0 +1,17 @@
+<!--pages/refund/refund.wxml-->
+<Toast id="Toast"></Toast>
+<view>
+  <view class='refund_item refund_special'>
+  <view class='detail_img'><image src='{{detail.main_image}}'></image></view>
+  <view class='detail_msg'><text>{{detail.goods_name}}</text><text>{{detail.spec_name}}</text></view>
+  </view>
+  <view class='refund_item'>
+    <text>退款件数</text>
+    <view class='refund_box'><text class='add' bindtap='sub'>-</text><text class='num'>{{num}}</text><text class='add' bindtap='add'>+</text></view>
+  </view>
+   <view class='refund_item'>
+    <text>退款说明</text>
+    <textarea placeholder-class="textplaceholder"  bindinput="textvalue"  placeholder="选填：输入退款说明" value='{{remark}}'></textarea>
+  </view>
+  <view class='refund_button'><button bindtap='commit'>提交退款</button></view>
+</view>

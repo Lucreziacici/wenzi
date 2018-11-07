@@ -1,0 +1,206 @@
+<view class="view_top">
+  <image class='view_top_img' src="{{resourceurl}}line.png"></image>
+</view>
+<!--地址  -->
+<navigator class='white choose-item-box' url="../addressList/addressList?oid={{order.order_no}}&onmsg=true">
+  <view class='choose-item'>
+    <view class='choose-item-left'>
+      <image src="{{resourceurl}}location_icon.png"></image>
+    </view>
+    <!--如果有默认地址  -->
+    <view class='choose-item-center' wx:if="{{order.province!=null}}">
+      <view class='choose-item-center-bottom'>
+        <text>收件人:</text>
+        <text>{{order.receiver_name}}  {{order.receiver_phone}}</text>
+      </view>
+      <view class='choose-item-center-bottom'>
+        <text>收货地址:</text>
+        <text>{{order.province}}{{order.city}}{{order.district}}{{order.address}}</text>
+      </view>
+    </view>
+    <!--如果没有默认地址  -->
+    <view class='choose-item-center' wx:if="{{order.province==null}}">
+      <view class='choose-item-center-bottom'>
+        <text>添加地址</text>
+        <text></text>
+      </view>
+    </view>
+    <view class='choose-item-right'>
+      <image src="{{resourceurl}}8.png">
+      </image>
+    </view>
+  </view>
+</navigator>
+<!--身份认证  -->
+<navigator class='white choose-item-box' url="../idcardList/idcardList?oid={{order.order_no}}&onmsg=true">
+  <view class='choose-item'>
+    <view class='choose-item-left'>
+      <image src="{{resourceurl}}authentication_icon.png"></image>
+    </view>
+    <!--如果有默认地址  -->
+    <view wx:if="{{order.real_name}}" class='choose-item-center'>
+      <view class='choose-item-center-bottom'>
+        <text>实名信息:</text>
+        <text >{{order.real_name}}</text>
+      </view>
+      <view class='choose-item-center-bottom'>
+        <text>身份证号码:</text>
+        <text>{{order.id_card}}</text>
+      </view>
+    </view>
+       <!--如果没有默认地址  -->
+    <view class='choose-item-center' wx:if="{{!order.real_name}}">
+      <view class='choose-item-center-bottom'>
+        <text>输入实名信息</text>
+        <text></text>
+      </view>
+    </view>
+    <view class='choose-item-right'>
+      <image src="{{resourceurl}}8.png">
+      </image>
+    </view>
+  </view>
+</navigator>
+
+<!--商品信息  -->
+<view class="orderdetail">
+  <view class='order-item white'>
+    <block wx:for="{{orderdetail_list}}" wx:key="id" wx:for-index="i">
+      <view class='order-item-body' wx:for="{{item.detail_list}}" wx:key="id" wx:for-index="i">
+        <view class='order-item-message' wx:if="{{showmore||i==0}}">
+          <navigator hover-class='none' url='/pages/product/product?id={{item.goods_id}}'>
+            <view class='order-product-image'>
+              <image src="{{item.main_image}}"></image>
+            </view>
+            <view class='order-product-message'>
+              <view>{{item.goods_name}}</view>
+              <view>规格：{{item.spec_name}}</view>
+              <view wx:if="{{item.intax==0&&item.inbond=='1'}}">￥{{item.discount_price}}
+                <text style='font-size:8pt'>+税费:￥{{item.discount_tax}}</text>
+              </view>
+              <view wx:if="{{item.intax==1&&item.inbond=='1'}}">￥{{item.goods_per_paid}}</view>
+              <view wx:if="{{item.inbond=='0'}}">￥{{item.goods_per_paid}}</view>
+            </view>
+            <view class='order-product-num'>
+              × {{item.goods_count}}
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{orderdetail_list[0].detail_list.length>1}}" class='order_more' bindtap='showmore'>
+      <text wx:if="{{!showmore}}">显示另外{{orderdetail_list[0].detail_list.length-1}}款(共{{order.goods_count}}件)</text>
+      <text wx:else>点击收起</text>
+      <image style='transform:{{showmore?"rotate(180deg)":"rotate(0deg)"}};' src='{{resourceurl}}arrow_top.png'></image>
+    </view>
+  </view>
+
+</view>
+
+<view class='payitem white'>
+  <view class='payheader'>
+    <text>共{{order.goods_count}}件</text>
+    <text>合计:￥{{order.pay_price}}</text>
+  </view>
+  <view class='paybody'>
+    <view wx:if="{{paymethod=='wx'}}"  ><form bindsubmit="zhifu" report-submit="true"><button formType="submit">微信支付</button></form></view>
+    <view wx:if="{{paymethod=='ali'}}" ><form bindsubmit="alipay" report-submit="true"><button formType="submit">支付宝支付</button></form></view>
+  </view>
+  <view class='payfooter'>
+    <text>您还可以使用</text>
+    <text bindtap='choosepay'>其他支付</text>
+  </view>
+</view>
+
+<!--订单信息  -->
+<view class='order-message white'>
+  <view class='order-message-list'>
+    <view class='order-message-item'>
+      <view>留言：</view>
+      <view style='width:80%'>
+        <input placeholder="对本次交易的留言~" type="text" maxlength="-1" bindblur="updatebeizhu" confirm-type="done" bindconfirm="beizhuSubmit" value='{{order.remark}}' />
+      </view>
+    </view>
+    <view class='order-message-item'>
+      <view>邮费:</view>
+      <view wx:if="{{order.feight_price}}">￥{{order.feight_price}}</view>
+      <view wx:else>包邮</view>
+    </view>
+    <view wx:if="{{order.goods_tax}}" class='order-message-item'>
+      <view>税金:</view>
+      <view>￥{{order.goods_tax}}</view>
+    </view>
+    <view class='order-message-item'>
+      <view>商品总价</view>
+      <view> ￥{{order.goods_price}}</view>
+    </view>
+  </view>
+</view>
+<!-- <view class="body-bottom">
+  <view class="bottom-1">
+    <text class="bottom-text1">实付：</text>
+    <text class="bottom-text2">{{order.pay_price}}元</text>
+  </view>
+  <view class="bottom-2" bindtap="zhifu">立即支付</view>
+</view> -->
+
+<view wx:if="{{showpay}}" bindtap='choosepay' class='layer'>
+
+</view>
+<view wx:if="{{showpay}}" class='chooselist white'>
+  <view class='chooseitem' data-type='1' catchtap='choosemethod'>
+    <image style='width:60rpx;height:60rpx;' data-type='1' catchtap='choosemethod' src='{{resourceurl}}wxpay.png'></image>
+    <text data-type='1' catchtap='choosemethod'>微信支付</text>
+  </view>
+  <view class='chooseitem' data-type='2' catchtap='choosemethod'>
+    <image src='{{resourceurl}}alipay.png' data-type='2' catchtap='choosemethod'></image>
+    <text data-type='2' catchtap='choosemethod'>支付宝支付</text>
+  </view>
+  <view class='chooseitem' data-type='3' catchtap='choosemethod'>
+    <text>取消</text>
+  </view>
+</view>
+<view wx:if="{{alipay}}" class='layer' bindtap='closelayer'>
+  <canvas canvas-id="shareCanvas" style="width:325px;height:440px"></canvas>
+  <button bindtap='save' class='savebutton'>保存到本地</button>
+</view>
+<view wx:if="{{autonym}}" class='layer' bindtap='openautonym'>
+
+</view>
+<view class='model_box' wx:if="{{autonym}}">
+  <view  class='model white'>
+    <view class='model_header'>
+      海关身份实名认证
+    </view>
+    <view class='model_body'>
+      <view class='tips'>须知：保税仓发货的订单，根据海关规定需要验证物品收件人的身份证信息，请务必认真填写</view>
+      <view class='input'>
+        <input placeholder='请输入您的姓名' data-type='realname' bindinput="bindKeyInput" value='{{team.real_name}}'></input>
+      </view>
+      <view class='input'>
+        <input placeholder='请输入您的身份证号' data-type='idcard' bindinput="bindKeyInput" value='{{team.id_card}}'></input>
+      </view>
+      <view class='button' bindtap='postnews'>确定</view>
+    </view>
+    <view class='model_footer'>
+      *商家负责提交消息，并对您的身份信息保密，绝不传播或利用其他地方，请放心填写
+    </view>
+  </view>
+</view>
+<view wx:if="{{islayer}}" class='model_box' >
+  <view  class='model white'>
+    <view class='model_header'>
+      温馨提示
+    </view>
+    <view class='model_body'>
+      <view class='tips'>{{tips}}</view>
+      <view class='button' bindtap='goorderlist'>{{button}}</view>
+    </view>
+    <view class='model_footer'>
+    </view>
+  </view>
+</view>
+<view wx:if="{{islayer}}" class='layer'>
+
+</view>
+  <Toast id="Toast"></Toast>

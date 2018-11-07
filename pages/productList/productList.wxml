@@ -1,0 +1,58 @@
+<!--pages/productList/productList.wxml-->
+<Toast id="Toast"></Toast>
+<SuspendedNavigation></SuspendedNavigation>
+<view class='topbox'>
+  <view class='search-box'>
+    <view class='search-item' bindtap="gosearch">
+      <image src='{{resourceurl}}soso.png'></image>
+      <text>输入关键字</text>
+    </view>
+  </view>
+  <view class='filter'>
+    <view bindtap='orderby' id="1" data-rank="desc" data-column="monthly_sales_volume" class=" {{currentTab==1 ? 'active' : ''}}">
+      <text>综合</text>
+    </view>
+    <view bindtap='orderby' id="2" data-rank="asc" data-column="show_price" class=" {{currentTab==2 ? 'active' : ''}}">
+      <text>价格</text>
+      <image src='{{price_active_img}}'></image>
+    </view>
+    <view bindtap='orderby' id="3" data-rank="desc" data-column="monthly_sales_volume" class=" {{currentTab==3 ? 'active' : ''}}">
+      <text>销量</text>
+    </view>
+    <view bindtap='openchoosefilter'>
+      <text>筛选</text>
+    </view>
+  </view>
+</view>
+<view class='commodity_list'>
+  <block wx:for="{{productList}}" wx:key="key">
+    <Commodity title='{{item.goods_name}}' commodity="{{item}}" commodityid="{{item.goods_id}}" img="{{item.main_image}}" price="{{item.show_price}}" isApprove='{{isApprove}}' item="{{item}}"></Commodity>
+  </block>
+</view>
+<view wx:if="{{!nomore&&!noresult}}" class='nomore'><image src='{{resourceurl}}listloading.gif'></image></view>
+<view wx:if="{{nomore}}" class='nomore'>╮(╯▽╰)╭没有更多了</view>
+<view wx:if="{{noresult}}" class='noresult'>
+  <image src='{{resourceurl}}noresult.jpg'></image>
+  <text>o(╥﹏╥)o啥都没搜到</text>
+  <text>换个条件试试吧</text>
+</view>
+
+<!--弹层  -->
+<view>
+  <view wx:if="{{filter}}" class='modalbg ' bindtap="closechoosefilter"></view>
+  <view class="classify-box {{filter ? 'c-state1' : ''}}">
+    <view class='classify-list-title'>品牌</view>
+    <view class='classify-list'>
+      <block wx:for="{{brand}}" wx:key="id" wx:for-index="i">
+        <view class='classify-item'>
+          <view class=" {{item.checked? 'classifyactive' : ''}} classify-text" data-id="{{item.id}}" id="{{i}}" bindtap="tagChoose" data-brand_code="{{item.brand_code}}">{{item.short_name}}</view>
+        </view>
+      </block>
+
+    </view>
+    <view class='classify-bottom'>
+      <view bindtap='reset'>重置</view>
+      <view bindtap='confirm'>确定</view>
+    </view>
+  </view>
+</view>

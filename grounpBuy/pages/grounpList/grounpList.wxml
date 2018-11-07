@@ -1,0 +1,118 @@
+<view class='tab'>
+  <view wx:for="{{Tab}}" wx:for-index="idx" wx:key="id" class="{{activedTab==idx?'tab-active':''}}"  data-id="{{idx}}" bindtap='switchTab'>{{item.title}}</view>
+</view>
+<view class='grounpList'>
+  <view class='grounpItem'>
+    <navigator hover-class='none' url='../../../pages/product/product?id=523'>
+      <view class='grounpItem_img'>
+        <image mode="widthFix" src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='grounpItem_message'>
+        <view class='grounpItem_title'>正品资生堂fino深层浸透发膜有效滋养修护230g正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='grounpItem_price'>
+          <text>2人拼 ￥12.00</text>
+          <text class='join'>去参团</text>
+        </view>
+      </view>
+
+    </navigator>
+  </view>
+  <view class='grounpItem'>
+    <navigator hover-class='none' url='../../../pages/product/product?id=523'>
+      <view class='grounpItem_img'>
+        <image mode="widthFix" src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='grounpItem_message'>
+        <view class='grounpItem_title'>正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='grounpItem_price'>
+          <text>2人拼 ￥12.00</text>
+          <text class='join'>去参团</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='grounpItem'>
+    <navigator hover-class='none' url='../../../pages/product/product?id=523'>
+      <view class='grounpItem_img'>
+        <image mode="widthFix" src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='grounpItem_message'>
+        <view class='grounpItem_title'>正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='grounpItem_price'>
+          <text>2人拼 ￥12.00</text>
+          <text class='join'>去参团</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='grounpItem'>
+    <navigator hover-class='none'>
+      <view class='grounpItem_img'>
+        <image mode="widthFix" src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='grounpItem_message'>
+        <view class='grounpItem_title'>正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='grounpItem_price'>
+          <text>2人拼 ￥12.00</text>
+          <text class='join'>去参团</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='grounpItem'>
+    <navigator hover-class='none'>
+      <view class='grounpItem_img'>
+        <image mode="widthFix" src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='grounpItem_message'>
+        <view class='grounpItem_title'>正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='grounpItem_price'>
+          <text>2人拼 ￥12.00</text>
+          <text class='join'>去参团</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='grounpItem'>
+    <navigator hover-class='none'>
+      <view class='grounpItem_img'>
+        <image mode="widthFix" src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='grounpItem_message'>
+        <view class='grounpItem_title'>正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='grounpItem_price'>
+          <text>2人拼 ￥12.00</text>
+          <text class='join'>去参团</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='grounpItem'>
+    <navigator  hover-class='none'>
+      <view class='grounpItem_img'>
+        <image mode="widthFix" src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='grounpItem_message'>
+        <view class='grounpItem_title'>正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='grounpItem_price'>
+          <text>2人拼 ￥12.00</text>
+          <text class='join'>去参团</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='grounpItem'>
+    <navigator hover-class='none'>
+      <view class='grounpItem_img'>
+        <image mode="widthFix" src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='grounpItem_message'>
+        <view class='grounpItem_title'>正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='grounpItem_price'>
+          <text>2人拼 ￥12.00</text>
+          <text class='join'>去参团</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

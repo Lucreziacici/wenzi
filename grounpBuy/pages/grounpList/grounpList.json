@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "团购列表",
+  "usingComponents": {
+    "Toast": "/components/Toast/Toast"
+  }
+}

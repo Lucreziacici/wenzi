@@ -1,0 +1,61 @@
+/* pages/idcardList/idcardList.wxss */
+page{
+  border-top: 1px solid #ddd;
+  background-color: #f5f5f5;
+  padding:0 0 120rpx 0;
+
+  /* padding:0 32rpx; */
+  /* display: flex;
+  justify-content: center; */
+}
+.idcard_list{
+  width: 686rpx;
+  margin: 0 0 0 32rpx;
+}
+.idcard_item{
+  padding: 20rpx 32rpx;
+  margin: 20rpx 0  0  0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 10rpx;
+  
+}
+.idcard_message{
+  padding: 20rpx 0;
+  border-bottom: 1px solid #ddd;
+}
+.idcard_button{
+  font-size: 10pt;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0 0 0;
+}
+.idcard_button_item{
+  display: flex;
+  align-items: center;
+}
+.idcard_button image{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 10rpx 0 0;
+  
+}
+.idcard_text{
+  font-size: 10pt;
+  margin: 10rpx 0 0 0;
+}
+.layer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  flex-direction: column;
+}

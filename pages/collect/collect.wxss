@@ -1,0 +1,131 @@
+/* pages/collect/collect.wxss */
+
+page {
+  background-color: #f8f7fa;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1rpx solid #e7e7e7;
+  font-size: 10pt;
+  padding: 0 0 20rpx 0;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.tab text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.commodity {
+  margin: 50rpx 0 0 0;
+}
+
+.commodity_list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.tab-active {
+  color: #9c855c;
+}
+
+.brand_item {
+  padding: 20rpx 32rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+  margin: 20rpx 0 0 0;
+  background: white;
+}
+
+.brand_title {
+  display: flex;
+  align-items: center;
+}
+
+.brand_title image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  border: 1px solid #e7e7e7;
+  padding: 10rpx;
+}
+
+.brand_title text {
+  font-size: 10pt;
+  margin: 0 0 0 20rpx;
+}
+
+.brand_more {
+  margin: 20rpx 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.brand_commodityitem {
+  margin: 0 30rpx 0 0;
+}
+
+.brand_commodityitem_url {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 150rpx;
+  min-height: 170rpx;
+}
+
+.brand_commodityitem_url image {
+  width: 150rpx;
+  height: 170rpx;
+}
+
+.more {
+  border: 1px solid #ededed;
+}
+
+.brand_commodityitem_url text {
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.brand_commodityitem_url .text {
+  -webkit-line-clamp: 2;
+  line-height: 16px;
+  height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  color: #9c855c;
+  align-self: flex-start;
+}
+
+.noresult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 10pt;
+  color: #aaa;
+  margin: 0 0 200rpx 0;
+}
+
+.noresult image {
+  width: 190rpx;
+  height: 190rpx;
+  margin: 200rpx 0 0 0;
+}
+
+.link {
+  border-bottom: 1px solid #9a8c65;
+  color: #9a8c65;
+}

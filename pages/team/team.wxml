@@ -1,0 +1,46 @@
+<view class="member-message">
+  <!-- <image  src="{{userInfo.avatarUrl}}"></image> -->
+  <open-data class="member-message-image" type="userAvatarUrl"></open-data>
+  <open-data class="member-nickname" type="userNickName"></open-data>
+  <!-- <text class="member-nickname">{{userInfo.nickName}}</text> -->
+  <text class="member-status">{{team.shstatus}}</text>
+</view>
+<view class="member-list">
+  <navigator class='member-item' url="../orderList/orderList">
+    <view class="member-item-box">
+      <text>我的订单</text>
+      <image src="{{resourceurl}}8.png"></image>
+    </view>
+  </navigator>
+  <view class='member-list-item'>
+    <block wx:for="{{orderlist}}" wx:key="item">
+      <view class='order-item'>
+        <navigator hover-class='none' url='{{item.url}}'>
+          <text wx:if="{{item.num>0&&item.num<100}}" class='order-item-hot'>{{item.num}}</text>
+          <text wx:elif="{{item.num>100}}" class='order-item-hot'>99+</text>
+          <image src="{{item.icon}}"></image>
+          <text class='order-item-title'>{{item.title}}</text>
+        </navigator>
+      </view>
+    </block>
+  </view>
+
+</view>
+<view class="member-list">
+  <block wx:for='{{list}}' wx:key="{{key}}">
+    <navigator class='member-item' url="{{item.link}}">
+      <view class=" member-item-box">
+        <text>{{item.name}}</text>
+        <image src="{{resourceurl}}8.png"></image>
+      </view>
+    </navigator>
+  </block>
+</view>
+<!-- <view class="member-list">
+  <view class='member-item'>
+    <navigator url='/pages/service/service' class="member-item-box">
+      <text>联系客服</text>
+      <image src="{{resourceurl}}8.png"></image>
+    </navigator>
+  </view>
+</view> -->

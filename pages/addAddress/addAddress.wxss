@@ -1,0 +1,35 @@
+page {
+  background-color: #e7e7e7;
+}
+
+.address-edit-box {
+  padding: 0 20rpx;
+}
+
+.address-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.address-title {
+  font-size: 12pt;
+  width: 200rpx;
+}
+
+.address-input {
+  font-size: 11pt;
+  width:550rpx;
+  min-height:1.4rem;
+  display: flex;
+  vertical-align: middle;
+  
+}
+.address-edit textarea{
+  margin: 5rpx 0 0 0;
+}
+.address-input picker{
+  width: 100%;
+}

@@ -1,0 +1,64 @@
+<block wx:for="{{packagelist}}" wx:key="id" wx:for-index="i">
+  <view class='order-item white'>
+    <view class='order-item-header'>
+      <navigator url="/pages/order/order?oid={{order.oid}}" hover-class='none'>
+        <view class='order-status'>包裹{{i+1}}</view>
+        <view>
+          <text class='order-orderid'></text>
+        </view>
+      </navigator>
+    </view>
+    <view class='order-item-body' wx:for="{{item.detail_list}}" wx:key="id" wx:for-index="i">
+      <view class='order-item-message'>
+        <navigator url="/pages/product/product?id={{item.goods_id}}" hover-class='none'>
+          <view class='order-product-image'>
+            <image src="{{item.main_image}}"></image>
+          </view>
+          <view class='order-product-message'>
+            <view>{{item.goods_name}}</view>
+            <view>
+              <text>规格：{{item.spec_name}}</text>
+            </view>
+            <view>￥{{item.goods_price}}</view>
+          </view>
+          <view class='order-product-num'>
+            × {{item.goods_count}}
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{item.logistics_no}}" class='logistics_title white'>
+    <text>物流信息:<text class="logistics_name">{{item.delivery_name}}</text></text>
+    <text>物流单号:{{item.logistics_no}}</text>
+  </view>
+  <view wx:else class='logistics_title white'>
+    <text>物流信息:<text class="logistics_name">暂无物流信息</text></text>
+  </view>
+  <view wx:if="{{item.logistics_no}}" class='order_detaillist white'>
+    <view class='order_detaillist_ul '>
+      <block wx:for="{{item.express_info.list}}" wx:key="id" wx:for-index="i">
+        <view class='order_detaillist_li '>
+          <view class="order_main_message">
+            <view>
+              <text class="timeline_dot"></text>
+            </view>
+            <view class="order_detail_message">
+              <text>{{item.status}} | {{item.time}}</text>
+            </view>
+          </view>
+          <view class="line"></view>
+        </view>
+      </block>
+      <view class='order_detaillist_li '>
+        <view>
+          <text class="timeline_dot"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+
+<view wx:if="{{packagelist.length==0}}" class='loading'>
+  <image src='{{resourceurl}}tail-spinner.gif'></image>
+</view>

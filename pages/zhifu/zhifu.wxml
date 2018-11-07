@@ -1,0 +1,19 @@
+<!--pages/zhifu/zhifu.wxml-->
+<text></text>
+<Toast id="Toast"></Toast>
+<view wx:if="{{islayer}}" class='model_box' >
+  <view  class='model white'>
+    <view class='model_header'>
+      温馨提示
+    </view>
+    <view class='model_body'>
+      <view class='tips'>{{tips}}</view>
+       <view class='button' bindtap='goorderlist'>{{button}}</view>
+    </view>
+    <view class='model_footer'>
+    </view>
+  </view>
+</view>
+<view wx:if="{{islayer}}" class='layer'>
+
+</view>

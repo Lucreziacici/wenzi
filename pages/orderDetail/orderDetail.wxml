@@ -1,0 +1,120 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class='orderdetail-box white'>
+  <view class='orderdetail-header'>
+    <text>订单编号:{{order_no}}</text> <text class='copy' bindtap='copy'>复制</text>
+  </view>
+</view>
+<view class='orderdetail-box white' wx:if="{{order.province}}">
+  <view class='orderdetail-header'>
+    收件地址:
+
+  </view>
+  <view class='orderdetail-body'>
+    <view class='orderdetail-message'>
+      <text>{{order.receiver_name}}</text>
+      <text>{{order.receiver_phone}}</text>
+    </view>
+    <view class='orderdetail-message-detail'>{{order.province}}{{order.city}}{{order.district}}{{order.address}}</view>
+  </view>
+</view>
+<view class='orderdetail-box white' wx:if="{{order.real_name}}">
+  <view class='orderdetail-header'>
+    <text>身份信息: </text><form class='copy' data-id="{{order_no}}" report-submit="true" bindsubmit='chooseidcard'><button formType="submit" hover-class="none">修改信息</button></form>
+
+  </view>
+  <view class='orderdetail-body'>
+    <view class='orderdetail-message'>
+      <text>姓名：{{order.real_name}}</text>
+    </view>
+     <view class='orderdetail-message'>
+      <text>身份证号：{{order.id_card}}</text>
+    </view>
+  </view>
+</view>
+<view class='orderdetail-box white'>
+  <view class='orderdetail-header'>
+    {{order.status_name}}
+  </view>
+  <view class='orderdetail-body'>
+   <block wx:for="{{detail_list}}" wx:key="item">
+    <navigator wx:for="{{item.detail_list}}" wx:key="item" hover-class='none' class='line' url='/pages/product/product?id={{item.goods_id}}'>
+      <view class='order-product-image'>
+        <image src='{{item.main_image}}'></image>
+      </view>
+      <view class='order-product-message'>
+        <view>{{item.goods_name}}</view>
+        <view>规格：{{item.spec_name}}</view>
+        <view wx:if="{{item.intax=='0'&&item.inbond=='1'}}">￥{{item.discount_price}}<text  style='font-size:8pt'>+税费:￥{{item.discount_tax}}</text></view>
+       <view wx:if="{{item.intax=='1'&&item.inbond=='1'}}">￥{{item.goods_per_paid}}</view>
+       <view wx:if="{{item.inbond=='0'}}">{{item.goods_per_paid}}</view>
+        <!-- <view>￥{{item.goods_per_price}}</view> -->
+      </view>
+      <view class='order-product-num'>
+       <view>  × {{item.goods_count}}</view>
+          <!-- <view wx:if="{{item.refund_detail_status=='00'&&order.status!=='00'&&order.status!=='40'}}" data-id='{{item.order_detail_no}}' data-order_no="{{item.order_no}}" catchtap="refund" class='button'>申请售后</view> -->
+             <!-- <view wx:elif="{{item.refund_detail_status=='10'}}" data-id="{{item.order_no}}" catchtap="cancelrefund" class='button'>取消申请</view> -->
+             <!-- <view wx:elif="{{order.status=='00'||order.status=='40'}}"></view>
+             <view wx:elif="{{(order.status!=='00'||order.status!=='40'||order.refund_detail_status!=='10')&&item.refund_status_name}}" >{{item.refund_status_name}}</view> -->
+      </view>
+    </navigator>
+    </block>
+
+    <!--订单详情  -->
+    <view class='orderdetail-price-detail'>
+      <view class='orderdetail-price-list'>
+        <view class='orderdetail-price-item'>
+          <text>备注</text>
+          <text style='max-width:400rpx;text-align:justify;'>{{order.remark?order.remark:'无'}}</text>
+        </view>
+        <view class='orderdetail-price-item'>
+          <text>邮费</text>
+          <text>￥{{order.feight_price}}</text>
+        </view>
+        <view class='orderdetail-price-item'>
+          <text>优惠</text>
+          <text>￥{{order.discount}}</text>
+        </view>
+        <view class='orderdetail-price-item' wx:if="{{order.goods_tax>0}}">
+          <text>税金</text>
+          <text>￥{{order.goods_tax}}</text>
+        </view>
+        <view class='orderdetail-price-item'>
+          <text>合计</text>
+          <text>￥{{order.pay_price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='orderdetail-footer'>
+  
+      <!--订单待支付  -->
+      <text bindtap='payOrder' wx:if="{{order.status=='00'}}" data-id='{{order.order_no}}'>去付款</text>
+      <text bindtap='cancelOrder' wx:if="{{order.status=='00'}}" data-id='{{order.order_no}}'>取消订单</text>
+      <!--订单已支付/已发货 -->
+      <text bindtap='refundOrder' wx:if="{{(order.status=='10'&&order.refund_status=='00')}}" data-id='{{order.order_no}}'>退款</text>
+      <text bindtap='checkLogistics' wx:if="{{order.status=='20'||order.status=='21'||order.status=='30'}}" data-id="{{order.order_no}}">查看物流</text>
+
+      <text bindtap='confirmOrder' wx:if="{{order.status=='20'}}" data-id="{{order.order_no}}">确认收货</text>
+
+      <text bindtap='deleteOrder' wx:if="{{order.status=='30'||order.status=='40'||order.status=='90'}}" data-id='{{order.order_no}}'>删除订单</text>
+
+      <!--todo用自带的客服  -->
+      <view class='contact' wx:if="{{order.refund_status=='30'||order.refund_status=='10'||order.refund_status=='31'||order.refund_status=='11'}}">
+        <!-- <button   open-type = "contact"   session-from = "weapp">123</button> -->
+        <contact-button type="default-light" size="23" session-from="weapp"></contact-button>
+        <contact-button type="default-light" size="23" session-from="weapp"></contact-button>
+        <contact-button type="default-light" size="23" session-from="weapp"></contact-button>
+        <contact-button type="default-light" size="23" session-from="weapp"></contact-button>
+        <contact-button type="default-light" size="23" session-from="weapp"></contact-button>
+        <text open-type="contact" data-id="{{order.order_no}}">联系客服</text>
+
+      </view>
+  </view>
+</view>
+<SuspendedNavigation></SuspendedNavigation>
+<Toast id="Toast"></Toast>
+<view class="page__bd">
+    <modal title="确认" confirm-text="确定"  cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="confirm_one" bindcancel="cancel_one">
+      {{tips}}
+    </modal>
+</view>

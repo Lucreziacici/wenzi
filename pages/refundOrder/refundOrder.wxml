@@ -1,0 +1,19 @@
+<!--pages/refundOrder/refundOrder.wxml-->
+
+
+<scroll-view class='order-list' scroll-y lower-threshold="10"  bindscrolltolower="loadMore" style='height: {{srollHeight}}px;'>
+<Orderitem wx:for="{{orderList}}" wx:key="{{key}}" order="{{item}}"  bind:deleteOrder="deleteOrder" bind:refundOrder="refundOrder" bind:confirmOrder="confirmOrder" bind:cancelrefund="cancelrefund" bind:refund="refund" bind:cancelOrder="cancelOrder"></Orderitem>
+<view wx:if="{{nomore}}" class='nomore'>╮(╯▽╰)╭没有更多了</view>
+<view wx:if="{{noresult}}" class='noresult'>
+      <image src='{{resourceurl}}noorder.png'></image>
+      <text>o(╥﹏╥)o没有订单诶</text>
+      <navigator url="../productList/productList">去逛逛吧</navigator>
+</view>
+</scroll-view>
+<view class="page__bd">
+    <modal title="确认" confirm-text="确定"  cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="confirm_one" bindcancel="cancel_one">
+      {{tips}}
+    </modal>
+</view>
+<SuspendedNavigation></SuspendedNavigation>
+<Toast id="Toast"></Toast>

@@ -1,0 +1,30 @@
+<!--pages/brand/brand.wxml-->
+<view class='brandbg'>
+  <image src='{{brandinfo.brand_image}}'></image>
+</view>
+<view class='brandinfo'>
+<view style='display:flex;'>
+  <view>
+    <image src='{{brandinfo.brand_logo}}'></image>
+  </view>
+  <view class='brandinfo_message'>
+    <text>{{brandinfo.brand_name}}</text>
+    <text>在售商品{{brandinfo.sales_goods_count}}个</text>
+  </view>
+  </view>
+   <view class='collect'>
+     <image bindtap='RemoveMyBrandCollection' wx:if="{{brandinfo.is_collected==1}}" src='{{resourceurl}}enshrined.png'></image>
+        <image bindtap='AddMyBrandCollection' wx:if="{{brandinfo.is_collected==0}}" src='{{resourceurl}}enshrine.png'></image>
+   </view>
+</view>
+<view class='brand_des' wx:if="{{brandinfo.brand_intro}}">
+     <text decode="{{true}}" space="{{true}}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>{{brandinfo.brand_intro}}
+
+</view>
+<SuspendedNavigation></SuspendedNavigation>
+<Toast id="Toast"></Toast>
+<view class='commodity_list'>
+  <block wx:for="{{brandinfo.sales_goods_list}}" wx:key="key">
+    <Commodity title='{{item.goods_name}}' order="{{item}}" commodityid="{{item.goods_id}}" img="{{item.main_image}}" price="{{item.show_price}}" isApprove="{{isApprove}}" commodity="{{item}}"></Commodity>
+  </block>
+</view>

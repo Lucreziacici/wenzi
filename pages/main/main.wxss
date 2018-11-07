@@ -1,0 +1,288 @@
+/**index.wxss**/
+
+page {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+button{
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+.search-box {
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 10000;
+}
+
+.search-item {
+  width: 600rpx;
+  border-radius: 100rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10pt;
+  background: #f7f7f7;
+  opacity: 0.7;
+}
+
+.search-item image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 20rpx 0 0;
+}
+
+.scroll_box {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper {
+  width: 750rpx;
+  height: 0rpx;
+}
+
+.slide-image {
+  width: 750rpx;
+}
+
+/* .swiper .wx-swiper-dot {
+  display: inline-flex;
+  height: 21rpx;
+  width: 21rpx;
+  margin-left: 20rpx;
+  justify-content: space-between;
+  background-color: #eff5f5;
+}
+
+.swiper .wx-swiper-dot::before {
+  content: '';
+  flex-grow: 1;
+  background: #eff5f5;
+  border-radius: 100rpx;
+}
+
+.swiper .wx-swiper-dot-active {
+  border-radius: 30rpx;
+  width: 40rpx;
+}
+
+.swiper .wx-swiper-dot-active::before {
+  background: #fa4686;
+} */
+
+.notice {
+  width: 750rpx;
+  /* margin: 20rpx 0 0 0; */
+}
+
+.notice image {
+  width: 750rpx;
+}
+
+.navigation {
+  display: flex;
+  width: 750rpx;
+  padding:20rpx 0 0 0;
+  justify-content: space-around;
+  background-color: #fff;
+  flex-wrap: wrap;
+}
+
+.navigation-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.navigation image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.navigation text {
+  font-size: 26rpx;
+  margin: 20rpx 0;
+}
+
+.special {
+  width: 750rpx;
+  /* margin: 20rpx 0 0 0; */
+}
+
+.special-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 74rpx;
+  margin: 20rpx 0;
+}
+
+.special-line {
+  width: 70rpx;
+  height: 2rpx;
+  margin: 0 28rpx;
+  background-color: #d1d1d1;
+}
+
+.special-title text {
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+.special-img image {
+  width: 750rpx;
+  display: block;
+}
+
+.commodity_list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0 0 40rpx 0;
+}
+.commodity_list_C {
+  display: flex;
+  flex-wrap:nowrap;
+  flex-direction: row;
+  padding: 0 0 40rpx 0;
+}
+
+.special-box {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 8rpx 16rpx;
+  width: 718rpx;
+}
+
+.list_list {
+  height: 600rpx;
+  width: 750rpx;
+}
+
+.list {
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.list_item {
+  width: 370rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list_item_img {
+  width: 370rpx;
+  height: 432rpx;
+}
+
+.list_item_title {
+  font-size: 40rpx;
+}
+
+.list_item_des {
+  font-size: 36rpx;
+}
+
+.list_item_price {
+  font-size: 30rpx;
+  color: red;
+}
+
+.logo-font {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-font image {
+  width: 150rpx;
+  height: 80rpx;
+  margin: 100rpx 0;
+}
+
+.top {
+  background: rgba(225, 225, 225, 0.5);
+  border-radius: 100%;
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+
+.top image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+}
+
+.more image {
+  width: 150rpx;
+}
+.commodity_more_A{
+  display: none
+}
+.commodity_more_B {
+  width: 200rpx;
+  height: 210rpx;
+  border: 1px solid #ededed;
+  margin: 20rpx 23rpx 0 23rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.commodity_more_B {
+  width: 200rpx;
+  height: 210rpx;
+  border: 1px solid #ededed;
+  margin: 20rpx 23rpx 0 23rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commodity_more_B image {
+  width: 150rpx;
+}
+.commodity_more_C{
+  width: 200rpx;
+  height: 210rpx;
+  border: 1px solid #ededed;
+  margin: 10rpx 14rpx 0 14rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commodity_more_C image {
+  width: 200rpx;
+}

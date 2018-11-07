@@ -1,0 +1,12 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "雯子的窝",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "SuspendedNavigation": "/components/SuspendedNavigation/SuspendedNavigation",
+    "Toast": "/components/Toast/Toast",
+    "Commodity": "/components/Commodity/Commodity"
+  }
+}

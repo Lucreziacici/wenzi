@@ -1,0 +1,134 @@
+/* pages/orderDetail/orderDetail.wxss */
+
+page {
+  background-color: #e7e7e7;
+}
+
+.line {
+  border-top: 1px solid #e7e7e7;
+  margin-top: 30rpx;
+  padding: 30rpx 0 0 0;
+}
+
+.orderdetail-box {
+  padding: 30rpx 32rpx;
+  border-top: 1px solid #e7e7e7;
+  margin: 0 0 20rpx 0;
+}
+
+.orderdetail-header {
+  font-size: 11pt;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy {
+  border: 1px solid #aaa;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  font-size: 10pt;
+}
+.copy button{
+  background: transparent;
+  font-size: 10pt;
+  outline:0;
+  border:none;
+  padding:0;
+  margin:0;
+  line-height: 40rpx;
+}
+.copy button::after{
+  outline:0;
+  border:none;
+}
+.orderdetail-message {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10pt;
+  margin: 20rpx 0 0 0;
+  color: #888;
+}
+
+.orderdetail-message-detail {
+  font-size: 10pt;
+  color: #888;
+}
+
+.orderdetail-body navigator {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-product-image image {
+  width: 200rpx;
+  height: 220rpx;
+}
+
+.order-product-message {
+  width: 320rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.order-product-message view:nth-child(1) {
+  color: #051b28;
+  font-size: 10pt;
+  line-height: 36rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 72rpx;
+  overflow: hidden;
+}
+
+.order-product-message view:nth-child(2) {
+  color: #666;
+  font-size: 10pt;
+}
+
+.order-product-message view:nth-child(3) {
+  color: #9c855c;
+}
+
+.order-product-num {
+  font-size: 10pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.order-product-num .button {
+  border: 1px solid #aaa;
+  border-radius: 10rpx;
+  padding: 5rpx 10rpx;
+  margin: 0 0 0 10rpx;
+  font-size: 8pt;
+  color: #333;
+}
+
+.orderdetail-footer {
+  border-top: 1px solid #e7e7e7;
+  margin: 30rpx 0 0 0;
+  padding: 30rpx 0 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.orderdetail-footer text {
+  border: 1px solid #e7e7e7;
+  border-radius: 10rpx;
+  font-size: 10pt;
+  padding: 10rpx 20rpx;
+  margin: 0 0 0 10rpx;
+}
+
+.orderdetail-price-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10pt;
+  color: #aaa;
+}

@@ -1,0 +1,34 @@
+<!--pages/footprint/footprint.wxml-->
+<view class='footprint'>
+  <view class='title'>
+    <text class='tip'>最近30天内的浏览记录都会展示在这里</text>
+    <text class='deletebutton' bindtap='deleteprint'>一键删除</text>
+  </view>
+  <view class='productlist'>
+    <view class='productitem' wx:for="{{historylist}}" key="item.id">
+      <navigator url='../product/product?id={{item.goods_id}}'>
+        <view class='productimg'>
+          <image src='{{item.main_image}}'></image>
+        </view>
+        <view class='producttitle'>
+          <text>{{item.goods_name}}</text>
+          <text class='common-color'>￥{{item.show_price}}</text>
+        </view>
+
+      </navigator>
+    </view>
+    <view wx:if="{{nomore}}" class='nomore'>╮(╯▽╰)╭没有更多了</view>
+    <view wx:if="{{noresult}}" class='noresult'>
+      <image src='{{resourceurl}}history_icon.png'></image>
+      <text>o(╥﹏╥)o您还没有浏览过的商品</text>
+      <navigator class='link' hover-class='none' url='../productList/productList'>去逛逛吧</navigator>
+    </view>
+  </view>
+  <view class="page__bd">
+    <modal title="确认" confirm-text="确定" data-id="{{cartid}}" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="confirmDelete" bindcancel="cancelDelete">
+      确认删除吗？
+    </modal>
+  </view>
+</view>
+<SuspendedNavigation></SuspendedNavigation>
+<Toast id="Toast"></Toast>

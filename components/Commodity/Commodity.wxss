@@ -1,0 +1,218 @@
+@import "../../app.wxss";
+
+button {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+button::after {
+  border: 0;
+}
+
+.commodity_item_A {
+  margin: 20rpx 9rpx 0 9rpx;
+  width: 358rpx;
+  box-shadow: 3px 3px 5px rgba(136, 136, 136, 0.15);
+}
+
+.commodity_item_A:nth-last-child(1) {
+  align-self: flex-start;
+}
+
+.commodity_item_A .commodity_img {
+  width: 358rpx;
+  height: 370rpx;
+  border-bottom: 1px solid #ededed;
+}
+
+.commodity_item_A .tips {
+  width: 358rpx;
+  height: 100rpx;
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  margin: -110rpx 0 0 0;
+  /* z-index: 10000000; */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10pt;
+}
+
+.commodity_item_A .tag {
+  width: 108rpx;
+  height: 117rpx;
+  position: absolute;
+  margin: 0 0 0 -108rpx;
+}
+
+.commodity_item_A .commodity_message {
+  display: flex;
+  flex-direction: column;
+  margin: -10rpx 0 0 0;
+  padding: 50rpx 32rpx 40rpx 32rpx;
+  font-size: 10pt;
+}
+
+.commodity_item_A .commodity_message .commodity_title {
+  color: #090909;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 300rpx;
+  height: 70rpx;
+  font-size: 10pt;
+  line-height: 35rpx;
+  vertical-align: middle;
+}
+
+.commodity_item_A .commodity_price {
+  margin: 9rpx 0 0 0;
+  font-size: 12pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.commodity_item_A  .original{
+ text-decoration: line-through;
+ color: #bbb;
+ font-size: 8pt;
+}
+
+.commodity_item_A .alias_name {
+  color: #f77;
+  border: 1px solid #f77;
+  font-size: 8pt;
+  padding: 3rpx 10rpx;
+  border-radius: 10rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commodity_item_B {
+  margin: 20rpx 23rpx 0 23rpx;
+  width: 200rpx;
+}
+
+.commodity_item_B:nth-last-child(1) {
+  align-self: flex-start;
+}
+
+.commodity_item_B .commodity_img {
+  width: 200rpx;
+  height: 210rpx;
+  border: 1px solid #ededed;
+}
+
+.commodity_item_B .tips {
+  display: none;
+}
+
+.commodity_item_B .tag {
+  display: none;
+}
+
+.commodity_item_B .commodity_message {
+  display: flex;
+  flex-direction: column;
+  margin: -10rpx 0 0 0;
+  font-size: 10pt;
+}
+
+.commodity_item_B .commodity_message .commodity_title {
+  color: #4e4e51;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 200rpx;
+  height: 70rpx;
+  font-size: 9pt;
+  line-height: 35rpx;
+  vertical-align: middle;
+}
+
+.commodity_item_B .commodity_price {
+  margin: 9rpx 0 0 0;
+  font-weight: bold;
+  
+}
+.commodity_item_B  .original{
+  display: block;
+ text-decoration: line-through;
+ color: #bbb;
+ font-size: 8pt;
+}
+.commodity_item_B .alias_name {
+  display: none;
+}
+
+.commodity_item_C {
+  margin: 10rpx 14rpx 0 14rpx;
+  width: 200rpx;
+}
+
+.commodity_item_C:nth-last-child(1) {
+  align-self: flex-start;
+}
+
+.commodity_item_C .commodity_img {
+  width: 200rpx;
+  height: 210rpx;
+  border: 1px solid #ededed;
+}
+
+.commodity_item_C .tips {
+  display: none;
+}
+
+.commodity_item_C .tag {
+  display: none;
+}
+
+.commodity_item_C .commodity_message {
+  display: flex;
+  flex-direction: column;
+  margin: -10rpx 0 0 0;
+  font-size: 10pt;
+  align-items: center;
+}
+
+.commodity_item_C .commodity_message .commodity_title {
+  color: #4e4e51;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 150rpx;
+  height: 70rpx;
+  font-size: 9pt;
+  line-height: 35rpx;
+  vertical-align: middle;
+  margin: 25rpx 0 0 0;
+}
+
+.commodity_item_C .commodity_price {
+  margin: 15rpx 0 0 0;
+  font-weight: bold;
+}
+.commodity_item_C  .original{
+  display: block;
+ text-decoration: line-through;
+ color: #bbb;
+ font-size: 8pt;
+}
+.commodity_item_C .alias_name {
+  display: none;
+}

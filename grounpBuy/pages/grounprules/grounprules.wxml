@@ -1,0 +1,51 @@
+<page>
+  <view class='title'>
+    <text></text>
+    <text></text>
+    <text>拼团活动规则</text>
+    <text></text>
+    <text></text>
+  </view>
+  <view class='message'>
+    <view class='message_title'>
+      团购成功：
+    </view>
+    <view class='message_content'>
+      在发起团购后的规定时间内，找到对应开团数的好友参团。
+    </view>
+    <view class='message_title'>
+      团购失败:
+    </view>
+    <view class='message_content'>
+      1，用户在开团后的规定时间内未找到对应开团数的好友参团。
+    </view>
+    <view class='message_content'>
+      2，在参团有效期内，商品已提前售罄，则不管团人数是否达到相应要求，此次团购失败。
+    </view>
+    <view class='message_title'>
+      活动细则:
+    </view>
+    <view class='message_content'>
+      1，本次活动不与其他优惠活动叠加。
+    </view>
+    <view class='message_content'>
+      2，组团不成功，退款将原路返还到您的支付账户。
+    </view>
+    <view class='message_content'>
+      3，拼团限购：部分拼团商品对同一用户有限购要求。
+    </view>
+    <view class='message_content'>
+      同一用户是指根据用户登录或使用的微信账号，平台根据关联信息判断实际为同一用户。
+    </view>
+    <view class='message_content'>
+      关联信息包括但不限于：同一微信号，同一收货手机号，同一身份证号码，通过不正当手段多次购买此类商品的，平台有权撤销相关交易订单。
+    </view>
+    <view class='message_content'>
+      4，团购进行中不允许取消团购，团购活动时间结束后，若未成功则自动退款。
+    </view>
+    <view class='message_content'>
+      5，为了保障广大消费者的权益，如在活动期间发现违规行为，平台有权取消订单。
+    </view>
+  </view>
+
+</page>

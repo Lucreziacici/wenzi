@@ -1,0 +1,60 @@
+<!--删减10行 toast 抽象by xixi 18/4/3  -->
+<form bindsubmit="formBindsubmit" bindreset="formReset">
+  <view class='information-input-list'>
+    <view class="information-input-item">
+      <view class="information-input-name">
+        姓名
+      </view>
+      <view class="information-input-input ">
+        <input type="text" focus name="name" placeholder="请填写姓名" bindconfirm="comfirmsearch" />
+      </view>
+    </view>
+    <view class="information-input-item">
+      <view class="information-input-name">
+        身份证
+      </view>
+      <view class="information-input-input ">
+        <input type="text" name="idcard" maxlength='18' placeholder="请输入身份证" />
+      </view>
+    </view>
+    <view class="information-input-item">
+      <view class="information-input-name">
+        联系人电话
+      </view>
+      <view class="information-input-input ">
+        <input type="number" name="phone" maxlength='11' placeholder="请输入联系人电话" />
+      </view>
+    </view>
+    <view class="information-input-item">
+      <view class="information-input-name">
+        部门
+      </view>
+      <view class="information-input-input ">
+        <input type="text" name="bumen" placeholder="请输入所在部门" />
+      </view>
+    </view>
+    <view class="information-input-item">
+      <view class="information-input-name">
+        主管姓名
+      </view>
+      <view class="information-input-input ">
+        <input type="text" name="name1" placeholder="请填主管姓名" />
+      </view>
+    </view>
+    <view class="information-input-item">
+      <view class="information-input-name">
+        公司名称
+      </view>
+      <view class="information-input-input ">
+        <input type="text" name="company" placeholder="请填公司名称" />
+      </view>
+    </view>
+    <view class='view_xie'>
+      <image style="height: 40rpx;width: 40rpx;position: relative;top:10rpx;" src="{{resourceurl}}{{radio1?'2':'1'}}.png" bindtap='radioChange'></image>
+      <text>我已同意</text>
+      <text>《缙嘉注册协议》</text>
+    </view>
+  </view>
+  <button class="body-submit" formType="submit">注册</button>
+</form>
+<Toast id="Toast"></Toast>

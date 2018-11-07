@@ -1,0 +1,57 @@
+<!--pages/idcardList/idcardList.wxml-->
+<view class='idcard_list'>
+  <view wx:for='{{IDcardList}}' wx:key="item" class='idcard_item'>
+    <view class='idcard_message' data-id_card='{{item.id_card}}' data-real_name='{{item.real_name}}' bindtap="{{onmsg?'chooseIdcard':''}}">
+      <view class='idcard_text'>
+        <text class='idcard_title'>姓名：</text>
+        <text class='idcard_content'>{{item.real_name}}</text>
+      </view>
+      <view class='idcard_text'>
+        <text class='idcard_title'>身份证号：</text>
+        <text class='idcard_content'>{{item.idcard}}</text>
+      </view>
+      <!-- <view class='idcard_text'>
+        <text class='idcard_title'>剩余额度：</text>
+        <text class='idcard_content'>{{item.annual_limit}}</text>
+      </view> -->
+    </view>
+    <view class='idcard_button'>
+      <view class='idcard_button_item' bindtap="radioChange" data-id='{{item.id}}'>
+       <image src="{{resourceurl}}{{item.is_default=='1'?'11':'00'}}.png" data-id='{{item.id}}'></image>
+        <text class="{{item.is_default=='1'?'common-color':''}}">设为默认</text>
+      </view>
+      <view class='idcard_button_item' bindtap='deleteidcard' data-id='{{item.id}}' >
+        <image  src="{{resourceurl}}dishanchu.png"></image>
+        <text>删除</text>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+<view wx:if="{{autonym}}" class='layer' bindtap='openautonym'>
+</view>
+<view class='model_box' wx:if="{{autonym}}">
+  <view class='model white'>
+    <view class='model_header'>
+      海关身份实名认证
+    </view>
+    <view class='model_body'>
+      <view class='tips'>须知：保税仓发货的订单，根据海关规定需要验证物品收件人的身份证信息，请务必认真填写</view>
+      <view class='input'>
+        <input placeholder='请输入您的姓名' data-type='realname' bindinput="bindKeyInput" value='{{team.real_name}}'></input>
+      </view>
+      <view class='input'>
+        <input placeholder='请输入您的身份证号' data-type='idcard' bindinput="bindKeyInput" value='{{team.id_card}}'></input>
+      </view>
+      <form class='button' report-submit="true" bindsubmit='postnews'><button formType="submit" hover-class="none">确定</button></form>
+    </view>
+    <view class='model_footer'>
+      *商家负责提交消息，并对您的身份信息保密，绝不传播或利用其他地方，请放心填写
+    </view>
+  </view>
+</view>
+<view class='common-bottom' bindtap='openautonym'>
+  <text>新增身份证</text>
+</view>
+<Toast id="Toast"></Toast>

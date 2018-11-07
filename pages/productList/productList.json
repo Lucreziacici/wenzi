@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "商品列表",
+  "onReachBottomDistance": 800,
+  "usingComponents": {
+    "SuspendedNavigation": "/components/SuspendedNavigation/SuspendedNavigation",
+    "Toast": "/components/Toast/Toast",
+    "Commodity": "/components/Commodity/Commodity"
+  }
+}

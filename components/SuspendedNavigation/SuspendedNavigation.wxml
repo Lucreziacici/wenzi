@@ -1,0 +1,23 @@
+<!--SuspendedNavigation.wxml-->
+<!--快捷导航栏  -->
+<view>
+  <view wx:if="{{isShowModal}}" class='modalbg' bindtap="plus">
+  </view>
+  <image src="{{resourceurl}}navigation.png" wx:if="{{!isShowModal}}" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+  <image src="{{resourceurl}}close.png" wx:else class="img-plus-style img-plus-style-active" animation="{{animPlus}}" bindtap="plus"></image>
+  <view class="img-style" animation="{{animTranspond}}" bindtap="collect">
+    <image src="{{resourceurl}}collect.png"></image>
+  </view>
+  <view class="img-style" animation="{{animGoclassification}}" bindtap="goclassification">
+    <image src="{{resourceurl}}plus.png"></image>
+  </view>
+  <view class="img-style" animation="{{animCollect}}" bindtap="transpond">
+    <image src="{{resourceurl}}transpond.png"></image>
+  </view>
+  <view class="img-style" animation="{{animproduct}}" bindtap="goproductList">
+    <image src="{{resourceurl}}productList_icon.png"></image>
+  </view>
+  <view class="img-style" animation="{{animInput}}" bindtap="input">
+    <image src="{{resourceurl}}input.png"></image>
+  </view>
+</view>

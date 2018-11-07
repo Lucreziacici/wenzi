@@ -1,0 +1,200 @@
+page {
+  border-top: 1px solid #ddd;
+}
+
+.groupons {
+  padding: 20rpx 28rpx 0 28rpx;
+}
+
+.groupons navigator {
+  border: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 10rpx;
+}
+
+.groupons navigator .groupons_img image {
+  width: 250rpx;
+  height: 260rpx;
+}
+
+.groupons navigator .groupons_message {
+  font-size: 10pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 260rpx;
+  margin: 0 0 0 30rpx;
+}
+
+.groupons navigator .groupons_message .groupons_title {
+  color: #333;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 35rpx;
+  vertical-align: middle;
+}
+
+.groupons_pricebox .groupons_price {
+  display: flex;
+  align-items: center;
+  color: #e93b3d;
+}
+
+.groupons_price text:nth-child(1) {
+  font-size: 9pt;
+  border-radius: 100px;
+  padding: 5rpx 10rpx;
+  border: 1px solid #e93b3d;
+}
+
+.groupons_price text:nth-child(2) {
+  font-size: 12pt;
+}
+
+.groupons_baseprice {
+  font-size: 10pt;
+  color: #999;
+  margin: 10rpx 0 0 0;
+  text-decoration: line-through;
+}
+
+.countdowntime {
+  margin: 53rpx 0 0 0;
+  font-size: 10pt;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.countdowntime text {
+  color: #e93b3d;
+}
+
+.groupons_member {
+  margin: 35rpx 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.groupons_memberitem {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 0 25rpx;
+}
+
+.groupons_memberitem .title {
+  font-size: 8pt;
+  font-weight: lighter;
+  background: #e93b3d;
+  color: white;
+  position: absolute;
+  border-radius: 20px;
+  padding: 2rpx 10rpx;
+  margin: -15rpx 0 0 0;
+}
+
+.groupons_memberitem image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  border: 2px dotted #ccc;
+}
+
+.groupons_memberitem .head {
+  border: 2px solid #e93b3d;
+}
+
+.groupons_button {
+  margin: 35rpx 0 0 0;
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.groupons_button button {
+  background-color: #e93b3d;
+  color: white;
+  font-size: 10pt;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border:none;
+  outline: none;
+}
+ button::after {
+  border:none;
+  outline: none;
+}
+.groupons_button .gray {
+  background: white;
+  border: 1px solid #d8d8d8;
+  color: black;
+  margin: 0 20rpx 0 0;
+}
+
+.success {
+  display: flex;
+  justify-content: center;
+  margin: 30rpx 0 0 0;
+  font-size: 12pt;
+  align-items: center;
+  font-weight: bold;
+}
+
+.success text {
+  border: 2px solid #e93b3d;
+  border-radius: 100%;
+  color: #e93b3d;
+  font-family: 微软雅黑;
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10rpx 0 0;
+}
+
+.orderdetail_list {
+  padding: 0 18rpx;
+  margin: 30rpx 0 0 0;
+}
+
+.orderdetail_item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10pt;
+  border-top: 1px solid #dfdfdf;
+  padding: 30rpx 0;
+}
+
+
+
+.orderdetail_item view:nth-child(2) {
+
+  display: flex;
+  align-items: center;
+  color: #787878;
+}
+
+.product_title {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height: 35rpx;
+  width: 400rpx;
+  vertical-align: middle;
+}
+
+.orderdetail_item image {
+  width: 10rpx;
+  height: 16rpx;
+}

@@ -1,0 +1,33 @@
+
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.title text:nth-child(2), text:nth-child(4){
+  height:4rpx;
+  width: 4rpx;
+  background-color: #444444;
+  border-radius: 100rpx;
+  margin: 0 10rpx;
+}
+.title text:nth-child(3){
+  font-size: 12pt;
+  font-weight: bold;
+
+} 
+.message_title{
+  border-left: 4rpx solid #444444;
+  padding: 0 0 0 24rpx;
+  font-weight: bold;
+  margin: 20rpx 0;
+}
+.message{
+  padding: 0 32rpx;
+  font-size: 10pt;
+}
+.message_content{
+  margin: 10rpx 0;
+}

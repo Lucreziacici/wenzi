@@ -1,0 +1,33 @@
+/* pages/accredit/accredit.wxss */
+page{
+  /* background: url(http://cdn.mallimg.shjinjia.com.cn/Uploads/SysImages/134/accreditbg.jpg) no-repeat; */
+  /* background-size: 100% auto; */
+ 
+  /* background-color: #00a48f; */
+  /* display: flex;
+  justify-content: center;
+  width: 100%; */
+  /* position: absolute;
+  width: 100%;
+  height: 1334rpx; */
+}
+.login{
+background:transparent;
+/* position:fixed; */
+/* bottom:0; */
+width:750rpx;
+padding:0;
+border:0;
+outline:none;
+text-align:center;
+/* margin:980rpx 0 0 0; */
+
+}
+
+.login image{
+  /* height: 70rpx; */
+  width: 750rpx;
+  
+}
+
+button::after{ border: none; }

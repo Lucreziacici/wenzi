@@ -1,0 +1,67 @@
+<page>
+  <!-- 恭喜团购成功 -->
+  <view class='success'>
+    <text>√</text>恭喜您拼购成功</view>
+
+  <!-- 团购商品详情 -->
+  <view wx:if="{{none}}" class='groupons'>
+    <navigator>
+      <view class='groupons_img'>
+        <image src='http://cdn.mallimg.shjinjia.com.cn/Uploads/ShopGoods/134/QT049-e6c700e198f34794a93669834ecf497d.jpg'></image>
+      </view>
+      <view class='groupons_message'>
+        <view class='groupons_title'>正品资生堂fino深层浸透发膜有效滋养修护230g正品资生堂fino深层浸透发膜有效滋养修护230g</view>
+        <view class='groupons_pricebox'>
+          <view class='groupons_price'>
+            <text>2人拼</text>
+            <text>￥9.50</text>
+          </view>
+          <view class='groupons_baseprice'>
+            <text>单买价</text>
+            <text>￥29.00</text>
+          </view>
+        </view>
+
+      </view>
+    </navigator>
+
+  </view>
+  <!-- 团购时间 剩余时间剩余人数 -->
+  <!-- <view class="countdowntime">还差
+    <text>1人</text>拼购成功，剩余时间12:23:34</view> -->
+  <!-- 团购一结束，其他人显示页面 -->
+  <!-- <view class="countdowntime">团长人气太高,已经拼购成功啦</view> -->
+  <!-- 团购人员 -->
+  <view class='groupons_member'>
+    <view class='groupons_memberitem'>
+      <text class="title">团长</text>
+      <image src='https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIt3vaaDAL9NMcw5Yric75Ia5xTk7arUQlgjyErXyMYrlXbUJlO5O81XshDdScCHl7uKymIMk0ianVA/132' class='head'></image>
+    </view>
+    <view class='groupons_memberitem'>
+      <image src='{{resourceurl}}question_mark.png'></image>
+    </view>
+  </view>
+  <!-- 团购邀请按钮 -->
+  <!-- <view class='groupons_button'>
+    <button>邀请好友参团</button>
+  </view> -->
+  <!-- 我也要开团按钮 -->
+  <!-- <view class='groupons_button'>
+    <button>我也要开团</button>
+  </view> -->
+  <!-- 成功开团的按钮 -->
+  <view class='groupons_button'>
+    <button class='gray'>查看订单</button>
+    <button bindtap=''>再逛逛吧</button>
+  </view>
+  <view class='orderdetail_list'>
+    <view class='orderdetail_item'>
+     <view>商品名称</view>
+     <view><view class='product_title'>正品资生堂fino深层浸透发膜有效滋养修护230g正品资生堂fino深层浸透发膜有效滋养修护230g</view><image src='{{resourceurl}}8.png'></image></view>
+    </view>
+    <view class='orderdetail_item'>
+     <view>拼购规则</view>
+     <view><view class='product_title'>好友参团·人满发货·不满退款</view><image src='{{resourceurl}}8.png'></image></view>
+    </view>
+  </view>
+</page>

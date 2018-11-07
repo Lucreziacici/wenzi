@@ -1,0 +1,255 @@
+<!--product.wxml
+    删减四十行 by xixi
+-->
+<import src="../../wxParse/wxParse.wxml" />
+
+<view wx:if="{{!product.banner_list}}" class='loading'>
+  <image src='{{resourceurl}}loading.gif'></image>
+</view>
+<view>
+  <view class="commodity-box {{product.banner_list?'commodity-box_active':''}}" animation="{{animTranspond}}" style='height: {{srollHeight}}px;'>
+    <!--轮播图  -->
+    <swiper class="commodity-swiper" indicator-dots="true" autoplay="true" interval="5000" duration="300" circular="true">
+      <block wx:for="{{product.banner_list}}" wx:for-index="index" wx:key="item">
+        <swiper-item>
+          <image src="{{item.url}}" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 团购信息 -->
+    <view wx:if="{{Isseckill_flag&&Iscount}}" class='group_message'>
+      <view>
+        <text decode="{{true}}" space="{{true}}">距离抢购开始</text>
+        <text>{{counttime.day}}天</text>:
+        <text>{{counttime.hou}}时</text>:
+        <text>{{counttime.min}}分</text>:
+        <text>{{counttime.sec}}秒</text>
+      </view>
+    </view>
+    <view class='share'>
+
+      <image src='{{resourceurl}}share.png'></image>
+      <button open-type="share"></button>
+    </view>
+
+
+
+    <!--商品信息  -->
+    <view class="commodity-message white">
+      <text class='commodity-title'>{{product.goods_name}}</text>
+      <text class='commodity-description' wx:if="{{product.summary}}">{{product.summary}}</text>
+      <view class='commodity_price_item'>
+        <view class='commodityprice'>
+          <view wx:if="{{isApprove&&discount_type==0}}" class='commodity-price'>
+            <text>￥{{discount_price}}</text>
+          </view>
+          <view wx:if="{{isApprove&&discount_type==1}}" class='commodity-price'>
+            <text>vip价:￥{{discount_price}}</text>
+            <text class='original'>原价:￥{{original}}</text>
+          </view>
+          <view wx:if="{{isApprove&&discount_type==2}}" class='commodity-price'>
+            <text>上新价:￥{{discount_price}}</text>
+            <text class='original'>原价:￥{{original}}</text>
+          </view>
+          <view wx:if="{{isApprove&&discount_type==3}}" class='commodity-price'>
+            <text>活动价:￥{{discount_price}}</text>
+            <text class='original'>原价:￥{{original}}</text>
+          </view>
+          <view wx:if="{{product.intax=='1'&&product.inbond=='1'}}" class='tax'>
+            <text>包税</text>
+            <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全场满299包邮</text>
+          </view>
+          <view wx:elif="{{product.intax=='0'&&product.inbond=='1'}}" class='tax'>
+            <text>税费：￥{{tax}}</text>
+            <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全场满299包邮</text>
+          </view>
+          <view wx:else class='tax'>
+            <text decode="{{true}}" space="{{true}}">全场满299包邮</text>
+          </view>
+        </view>
+        <view class='collect_item'>
+          <view class='collect_item_cell' bindtap='collect'>
+            <image wx:if="{{product.is_collected==1}}" src='{{resourceurl}}enshrined.png'></image>
+            <image wx:if="{{product.is_collected==0}}" src='{{resourceurl}}enshrine.png'></image>
+            <!-- <text>收藏</text> -->
+          </view>
+        </view>
+
+      </view>
+
+    </view>
+    <!-- 拼团规则 -->
+    <!-- <view class='rules'><navigator url='../../grounpBuy/pages/grounprules/grounprules'><text>拼团规则</text><image src="{{resourceurl}}8.png"></image></navigator></view> -->
+
+    <!--商品信息  -->
+    <view class="white commodity-info">
+      <view class='commodity-info-title'>商品信息</view>
+      <view class=" commodity-info-list">
+        <view class=" commodity-info-item">
+          <text>品牌：</text>
+          <text>{{product.brand_name}}</text>
+        </view>
+        <!-- <view class=" commodity-info-item">
+          <text>发货时间：</text>
+          <text>1-3个工作日</text>
+        </view>
+        <view wx:if="{{active.alias_name}}" class="commodity-info-item">
+          <text>发货地：</text>
+          <text>{{active.alias_name}}</text>
+        </view> -->
+        <view wx:if="{{!Buystate}}" class="commodity-info-item" data-type='2'>
+          <text>选择规格</text>
+          <image src="{{resourceurl}}8.png"></image>
+        </view>
+        <view wx:else class="commodity-info-item" data-type='2' bindtap="onChangeShowState">
+          <text>选择规格</text>
+          <image src="{{resourceurl}}8.png"></image>
+        </view>
+      </view>
+    </view>
+    <!--品牌  -->
+    <view class="white commodity-info">
+      <view class='commodity-info-title'>
+        <text>品牌信息</text>
+        <view class='link_brand'>
+          <navigator hover-class='none' url='../brand/brand?brand_code={{product.brand_code}}'>进入品牌
+            <image src="{{resourceurl}}8.png"></image>
+          </navigator>
+        </view>
+      </view>
+      <view class='commodity-brand'>
+        <image src='{{product.brand_logo}}'></image>
+        <text>{{product.brand_name}}</text>
+        <view class='collect'>
+          <image bindtap='RemoveMyBrandCollection' wx:if="{{product.brand_is_collected==1}}" src='{{resourceurl}}enshrined.png'></image>
+          <image bindtap='AddMyBrandCollection' wx:if="{{product.brand_is_collected==0}}" src='{{resourceurl}}enshrine.png'></image>
+        </view>
+
+      </view>
+    </view>
+    <!--商品详情  -->
+    <view class="white commodity-info">
+      <view class="commodity-info-title">
+        商品详情
+      </view>
+      <view class='rich-text'>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+    <view wx:if="{{product.related_goods_list.length>0}}" class="white" style='padding:20rpx 0;margin:20rpx 0;'>
+      <view class="commodity-info-title " style='margin:45rpx 0 0 30rpx'>
+        猜你喜欢
+      </view>
+      <view class='commodity_list'>
+        <block wx:for="{{product.related_goods_list}}" wx:key="key">
+          <Commodity title='{{item.goods_name}}' commodity="{{item}}" commodityid="{{item.goods_id}}" img="{{item.main_image}}" price="{{item.show_price}}" isApprove='{{isApprove}}' item="{{item}}"></Commodity>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{product.banner_list}}" class='commodity-bottom white'>
+    <view class='commodity-navigation-buttons'>
+      <!-- <view class='cell' bindtap='collect'>
+        <image wx:if="{{product.is_collected==1}}" src='{{resourceurl}}enshrined.png'></image>
+        <image wx:if="{{product.is_collected==0}}" src='{{resourceurl}}enshrine.png'></image>
+        <text>收藏</text>
+      </view> -->
+      <navigator url='/pages/main/main' class='cell' open-type='switchTab'>
+        <image src='{{resourceurl}}home.png'></image>
+        <text>首页</text>
+      </navigator>
+      <navigator url='/pages/cart/cart' class='cell' open-type='switchTab'>
+        <image src='{{resourceurl}}cart.png'></image>
+        <text>购物车</text>
+      </navigator>
+      <view>
+        <contact-button type="default-light" size="23" session-from="weapp"></contact-button>
+        <view class='cell'>
+          <image src='{{resourceurl}}service.png'></image>
+          <text class="body-goumai-1-text">客服</text>
+        </view>
+
+      </view>
+    </view>
+    <view class='buy-button'>
+      <view class='add-to-cart' wx:if="{{product.del_flag==1||product.put_on_type=='1'}}" style="background:#aaa">已下架</view>
+      <view class='add-to-cart' wx:elif="{{Buystate}}" style="{{product.put_on_type=='1'?'opacity: 0.4':''}}" data-type='0' bindtap="{{product.put_on_type=='1'?'':'onChangeShowState'}}">
+        <form report-submit="true" bindsubmit="formSubmit">
+          <button formType="submit" hover-class="none">加入购物车</button>
+        </form>
+      </view>
+      <view class='add-to-cart' wx:elif="{{!Buystate}}" style="background:#aaa">已售罄</view>
+      <view class='add-to-cart' wx:if="{{product.del_flag==1||product.put_on_type=='1'}}" style="background:#aaa">已下架</view>
+      <view class='buy-now' wx:elif="{{Buystate}}" style="{{product.put_on_type=='1'?'opacity: 0.4':''}}" data-type='1' bindtap="{{product.put_on_type=='1'?'':'onChangeShowState'}}">
+        <form report-submit="true" bindsubmit="formSubmit">
+          <button formType="submit" hover-class="none">立即购买</button>
+        </form>
+      </view>
+      <view class='buy-now' wx:elif="{{!Buystate}}" style="background:#aaa">已售罄</view>
+    </view>
+
+  </view>
+</view>
+<!--下单弹框  -->
+<view class="widgets-cover widgets-cover-{{widgets?'hide':'show'}}">
+  <view class="cover-bg" bindtap="onChangeShowState"></view>
+  <view class="cover-content">
+    <view class="cover-header">
+      <image src="{{product.main_image}}"></image>
+      <view class="main-message">
+        <text class="main-message-price">￥{{discount_price}}</text>
+        <text wx:if="{{discount_type==1||discount_type==2||discount_type==3}}" class="original">原价:￥{{original}}</text>
+        <text class="main-message-title">{{product.brand_name}}</text>
+        <text class="main-message-repertory">库存：{{repertory?repertory:'0'}}件</text>
+      </view>
+    </view>
+    <view class='cover-body'>
+      <view class='message-box'>
+        <view class='message-box-title'>选择规格</view>
+        <view class='message-box-specification'>
+          <view class="guige-body1-rudio" wx:for="{{product.spec_list}}" wx:key="i" wx:for-index="i">
+            <view class="specification-button {{item.stock_count<=0?'nocount':''}}  specification-{{currentTab==item.spec_no ? 'actived' : 'unactivated'}}" data-id="{{item.spec_no}}" data-bianma="{{item.spec_name}}" data-price="{{item.price}}" data-tax="{{item.tax}}"
+              data-repertory="{{item.stock_count}}"  data-item="{{item}}" data-name="{{item.spec_name}}" catchtap="{{item.stock_count>0 ? 'rudioChoose' : 'soldout'}}">
+              <text class="rudio-text1">{{item.spec_name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='message-box message-num'>
+        <view class='message-box-title'>数量</view>
+        <view class='message-box-specification'>
+          <view class="message-num-machine">
+            <view class="message-num-sub" data-num="{{quantity}}" catchtap="{{quantity<='1'?'':'subNum'}}">-</view>
+            <view class="message-num-num">{{quantity}}</view>
+            <view class="message-num-add" data-num="{{quantity}}" catchtap="{{quantity<repertoryMax?'addNum':'nomore'}}">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{isAddCart==0||isAddCart==1}}" class="cover-footer" catchtap="{{isAddCart=='0'?'addcart':'addorder'}}">
+      <text>确认</text>
+    </view>
+    <view wx:else class="cover-footer-choose">
+      <view class='buy-button'>
+        <view class='add-to-cart' wx:if="{{product.del_flag==1||product.put_on_type=='1'}}" style="background:#aaa">已下架</view>
+        <view class='add-to-cart' wx:elif="{{Buystate}}" style="{{product.put_on_type=='1'?'opacity: 0.4':''}}" data-type='0' bindtap="{{product.put_on_type=='1'?'':'addcart'}}">
+          <form report-submit="true" bindsubmit="formSubmit">
+            <button formType="submit" hover-class="none">加入购物车</button>
+          </form>
+        </view>
+        <view class='add-to-cart' wx:elif="{{!Buystate}}" style="background:#aaa">已售罄</view>
+        <view class='add-to-cart' wx:if="{{product.del_flag==1||product.put_on_type=='1'}}" style="background:#aaa">已下架</view>
+        <view class='buy-now' wx:elif="{{Buystate}}" style="{{product.put_on_type=='1'?'opacity: 0.4':''}}" data-type='1' bindtap="{{product.put_on_type=='1'?'':'addorder'}}">
+          <form report-submit="true" bindsubmit="formSubmit">
+            <button formType="submit" hover-class="none">立即购买</button>
+          </form>
+        </view>
+        <view class='buy-now' wx:elif="{{!Buystate}}" style="background:#aaa">已售罄</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<SuspendedNavigation></SuspendedNavigation>
+<Toast id="Toast"></Toast>

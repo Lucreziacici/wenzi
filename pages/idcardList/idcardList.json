@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "身份证信息",
+  "usingComponents": {
+    "Toast": "/components/Toast/Toast"
+  }
+}

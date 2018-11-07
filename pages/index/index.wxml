@@ -1,0 +1,36 @@
+<!--搜索框  -->
+<view class='search-box'>
+  <view class='search-item' bindtap="gosearch">
+    <image src='../../images/soso.png'></image>
+    <text>输入关键字</text>
+  </view>
+</view>
+<!--index.wxml-->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+  <block wx:for="{{banners}}" wx:for-index="index" wx:key="index">
+    <swiper-item>
+      <image src="{{item.img}}" class="slide-image" mode="aspectFill" data-url="{{item.link}}" bindtap="gourl" />
+    </swiper-item>
+  </block>
+</swiper>
+<!--循环-->
+<scroll-view class="scroll-view_H scroll-daohang" scroll-x="true">
+  <view wx:for="{{navbar}}" id="{{item.id}}" data-idx="{{index}}" wx:key="unique" class="scroll-view-item_F" bindtap="navbarTap">
+    <view class="item {{currentTab==index ? 'active' : ''}}">
+      {{item.name}}
+    </view>
+  </view>
+</scroll-view>
+<!--分类-->
+<view class="clearfix">
+  <view class='commodity_list'>
+    <block wx:for="{{products}}" wx:key="key">
+      <Commodity title='{{item.title}}' commodityid="{{item.p1id}}" img="{{item.img}}" price="{{item.price2}}"></Commodity>
+    </block>
+  </view>
+
+</view>
+<navigator open-type="redirect" url="../allproducts/allproducts">
+  <image class="buttom_1_image" src="{{url1+'/images/gd.png'}}"></image>
+</navigator>
+<Toast id="Toast"></Toast>

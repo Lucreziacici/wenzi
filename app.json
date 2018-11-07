@@ -1,0 +1,97 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/classify/classify",
+    "pages/search/search",
+    "pages/productList/productList",
+    "pages/brand/brand",
+    "pages/product/product",
+    "pages/cart/cart",
+    "pages/final/final",
+    "pages/zhifu/zhifu",
+    "pages/team/team",
+    "pages/orderList/orderList",
+    "pages/orderDetail/orderDetail",
+    "pages/refundOrder/refundOrder",
+    "pages/addAddress/addAddress",
+    "pages/addressList/addressList",
+    "pages/editAddress/editAddress",
+    "pages/memberInformation/memberInformation",
+    "pages/refund/refund",
+    "pages/logistics/logistics",
+    "pages/accredit/accredit",
+    "pages/login/login",
+    "pages/service/service",
+    "pages/footprint/footprint",
+    "pages/collect/collect",
+    "pages/allproduct/allproduct",
+    "pages/activity/activity",
+    "pages/idcardList/idcardList",
+    "pages/yhjuan/yhjuan",
+    "pages/index/index",
+    "pages/sfzheng/sfzheng",
+    "pages/logs/logs"
+  ],
+  "subPackages": [
+    {
+      "root": "grounpBuy",
+      "pages": [
+        "pages/grounpList/grounpList",
+        "pages/sharepage/sharepage",
+        "pages/grounprules/grounprules"
+      ]
+    }
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#9c855c",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "iconPath": "images/home-icon.png",
+        "selectedIconPath": "images/home-active-icon.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "iconPath": "images/classifination-icon.png",
+        "selectedIconPath": "images/classifination-acitive-icon.png",
+        "text": "商品分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/shopping-icon.png",
+        "selectedIconPath": "images/shopping-active-icon.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/allproduct/allproduct",
+        "iconPath": "images/productList-icon.png",
+        "selectedIconPath": "images/productList-active-icon.png",
+        "text": "全部商品"
+      },
+      {
+        "pagePath": "pages/team/team",
+        "iconPath": "images/member-icon.png",
+        "selectedIconPath": "images/member-active-icon.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

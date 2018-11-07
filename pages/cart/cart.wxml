@@ -1,0 +1,142 @@
+<Toast id="Toast"></Toast>
+<view class='cart_empty' wx:if="{{carts.length==0&&invalid_list.length==0}}">
+  <image src='{{resourceurl}}cart_empty.png'></image>
+  <text>购物车竟然是空的</text>
+  <text>"再忙，也要记得买点什么犒赏自己~"</text>
+</view>
+<form wx:if="{{carts.length!==0||invalid_list.length!==0}}"  report-submit="true" bindsubmit="formBindsubmit" bindreset="formReset">
+  <input type="text" hidden="false" name="appid" value="{{appid}}" />
+  <input type="text" hidden="false" name="openid" value="{{openid}}" />
+  <view class="body-tab">
+    <checkbox-group bindchange="checkboxChange" name="cartvalues">
+      <block wx:for="{{carts}}" wx:for-index="idx" wx:key="key">
+        <view class="tab-body">
+          <view class="tab-body-1">
+            <view class="tab-xuan">
+              <label class="checkbox">
+                <checkbox value="{{item.id}}" checked="{{item.checked}}" hidden="false" />
+                <image style="height: 40rpx;width: 40rpx;" src="{{resourceurl}}{{item.checked?'2':'1'}}.png"></image>
+              </label>
+            </view>
+            <view class="tab-img">
+              <image style="height: 220rpx;width: 220rpx;" src="{{item.main_image}}"></image>
+            </view>
+            <view class="tab-title">
+              <view class="tab-title-1">
+                <view class="tab-title-1-1">
+                  {{item.goods_name}}
+                </view>
+                <view class="tab-title-1-2" data-index="{{idx}}" data-id="{{item.id}}" bindtap="dialogDelete">
+                  <image class="delete-img" src="{{resourceurl}}dishanchu.png"></image>
+                  <view class="delete-view">删除</view>
+                </view>
+              </view>
+              <view style="font-size:9pt;color:#989898">
+                规格：{{item.spec_name}}
+              </view>
+              <view style='display:flex;align-items: center; justify-content: space-between;margin:10rpx 0 0 0;padding:0 20rpx 0 0 '>
+                <view style=" ">
+                  <text wx:if="{{item.intax==1&&item.inbond=='1'}}"  style="font-size: 11pt;color: #9a8c65">￥{{item.discount_price}}</text> 
+                  <text wx:if="{{item.intax==0&&item.inbond=='1'}}"  style="font-size: 11pt;color: #9a8c65">￥{{item.goods_per_price}}<text  style='font-size:8pt'>+税费:￥{{item.goods_per_tax}}</text></text>
+                 <text wx:if="{{item.inbond=='0'}}" style="font-size: 11pt;color: #9a8c65">￥{{item.discount_price}}</text>
+                </view>
+
+              </view>
+               <view class="tab-title-2">
+                  <view class="guige-num">
+                    <view class="guige-num-kong1" id="{{item.id}}" bindtap="{{item.count<=1?'least':'subNum'}}">-</view>
+                    <view class="guige-num-kong2" data-item="{{item}}" bindtap='opennum'>{{item.count}}</view>
+                    <view class="guige-num-kong1" id="{{item.id}}" bindtap="{{item.count<item.stock_count?'addNum':'most'}}">+</view>
+                  </view>
+                </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </checkbox-group>
+    <view>
+      <block wx:for="{{invalid_list}}" wx:for-index="idx" wx:key="key">
+        <view class="tab-body">
+          <view class="tab-body-1">
+            <view class="tab-xuan">
+              <label class="checkbox">
+                <view class='invalid'>失效</view>
+              </label>
+            </view>
+            <view class="tab-img">
+              <image style="height: 220rpx;width: 220rpx;" src="{{item.main_image}}"></image>
+            </view>
+            <view class="tab-title">
+              <view class="tab-title-1">
+                <view class="tab-title-1-1">
+                  {{item.goods_name}}
+                </view>
+                <view class="tab-title-1-2" data-index="{{idx}}" data-id="{{item.id}}" bindtap="dialogDelete">
+                  <image class="delete-img" src="{{resourceurl}}dishanchu.png"></image>
+                  <view class="delete-view">删除</view>
+                </view>
+              </view>
+              <view style="font-size:10pt;color:#989898">
+                规格：{{item.spec_name}}
+              </view>
+              <view style='display:flex;align-items: center; justify-content: space-between;margin:20rpx 0 0 0;padding:0 20rpx 0 0 '>
+                <view style=" ">
+                <text wx:if="{{item.intax==1&&item.inbond=='1'}}" style="font-size: 11pt;color: #9a8c65">￥{{item.discount_price}}</text>
+                <text wx:if="{{item.intax==0&&item.inbond=='1'}}" style="font-size: 11pt;color: #9a8c65">￥{{item.goods_per_price}}<text  style='font-size:8pt'>+税费:￥{{item.goods_per_tax}}</text></text>
+                  <text wx:if="{{item.inbond=='0'}}" style="font-size: 11pt;color: #9a8c65">￥{{item.discount_price}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </view>
+  <view class="page__bd">
+    <modal title="确认" confirm-text="确定" data-id="{{cartid}}" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="confirmDelete" bindcancel="cancelDelete">
+      确认删除吗？
+    </modal>
+  </view>
+  <view class="page__bd">
+    <modal title="确认" confirm-text="确定" cancel-text="取消" hidden="{{modalStatus}}" mask bindconfirm="confirmAccount" bindcancel="cancelAccount">
+      确认结算吗？
+    </modal>
+  </view>
+  <view class="clear-body"></view>
+  <view class="body-bottom">
+    <view class="body-head" bindtap="checkAll">
+      <image class="head-xuan" src="{{resourceurl}}{{checkAllStatus?'2':'1'}}.png"></image>
+      <text class="tab-bottom-text">全选</text>
+    </view>
+    <view class="body-bottom-1">
+      <view class='total-price'>
+        <text class="bottom-text1">合计：</text>
+        <text  class="bottom-text2">￥{{total_price}}</text>
+       
+      </view>
+      <text class="bottom-text3">含税金</text>
+    </view>
+    <button class="body-bottom-2" form-type="submit"><form report-submit="true" bindsubmit="formSubmit"><button formType="submit" hover-class="none">结算</button></form></button>
+  </view>
+</form>
+<view wx:if="{{IsShow}}" class='changenum'>
+  <view class='layer' bindtap='closechangebox'></view>
+  <view class='changebox'>
+    <view class='changebox_header'>
+      <text>修改购买数量</text>
+    </view>
+    <view class='changebox_main'>
+      <view id="{{ActiveItem.id}}" bindtap="{{ActiveItemcount<=1?'least':'activesubNum'}}">-</view>
+      <view>
+        <input focus="true" type="number" bindinput="bindKeyInput" value='{{ActiveItemcount}}'></input>
+      </view>
+      <view id="{{ActiveItem.id}}" bindtap="{{ActiveItem.count<ActiveItem.stock_count?'activeaddNum':'most'}}">+</view>
+    </view>
+    <view class='changebox_footer'>
+      <view class='changebox_footer_button' bindtap='closechangebox'><form report-submit="true" bindsubmit="formSubmit"><button formType="submit" hover-class="none">我再想想</button></form></view>
+      <view class='changebox_footer_button' bindtap='changeNumSure'><form report-submit="true" bindsubmit="formSubmit"><button formType="submit" hover-class="none">确认</button></form></view>
+    </view>
+  </view>
+
+</view>

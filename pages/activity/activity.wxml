@@ -1,0 +1,15 @@
+    <view  class="special" >
+      <view class='special-img'>
+        <image src='{{category.img_url}}' mode="widthFix"></image>
+      </view>
+      <view>
+        <view class='commodity_list'>
+          <block wx:for="{{category.category_goods_list}}" wx:key="key">
+            <Commodity title='{{item.goods_name}}' commodity="{{item}}" commodityid="{{item.goods_id}}" img="{{item.main_image}}" price="{{item.show_price}}" isApprove='{{isApprove}}' item="{{item}}"></Commodity>
+          </block>
+        </view>
+      </view>
+
+    </view>
+    <SuspendedNavigation></SuspendedNavigation>
+

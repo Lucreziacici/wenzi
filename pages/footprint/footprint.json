@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的足迹",
+  "usingComponents": {
+    "SuspendedNavigation": "/components/SuspendedNavigation/SuspendedNavigation",
+    "Toast": "/components/Toast/Toast"
+  }
+}

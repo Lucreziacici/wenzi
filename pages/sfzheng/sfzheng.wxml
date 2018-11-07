@@ -1,0 +1,27 @@
+<view class='top white'>
+  身份证信息
+</view>
+<view class='white'>
+  <form bindsubmit="formBindsubmit" bindreset="formReset">
+    <view class='information-input-list'>
+      <view class="information-input-item">
+        <view class="information-input-name">
+          姓名：
+        </view>
+        <view class="information-input-input ">
+          <input type="text" focus name="name" placeholder="请填写真实姓名"  />
+        </view>
+      </view>
+      <view class="information-input-item">
+        <view class="information-input-name">
+          身份证号：
+        </view>
+        <view class="information-input-input ">
+          <input type="text" maxlength='18' name="shen" placeholder="请填写身份证号"  />
+        </view>
+      </view>
+    </view>
+    <button class="body-submit" formType="submit">确认</button>
+  </form>
+</view>
+<Toast id="Toast"></Toast>

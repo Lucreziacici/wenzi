@@ -1,0 +1,44 @@
+/* pages/activity/activity.wxss */
+.special {
+  width: 750rpx;
+  margin: 20rpx 0 0 0;
+}
+
+.special-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 74rpx;
+  margin: 20rpx 0;
+}
+
+.special-line {
+  width: 70rpx;
+  height: 2rpx;
+  margin: 0 28rpx;
+  background-color: #d1d1d1;
+}
+
+.special-title text {
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+.special-img image {
+  width: 750rpx;
+}
+.commodity_list {
+  margin: 20rpx 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.special-box {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 8rpx 16rpx;
+  width: 718rpx;
+}

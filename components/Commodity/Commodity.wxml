@@ -1,0 +1,24 @@
+<view class='commodity_item_{{show_type}}'>
+  <!-- <navigator hover-class="none" url="../product/product?id={{commodityid}}"> -->
+  <form report-submit="true" bindsubmit="formSubmit" data-id='{{commodityid}}'>
+    <button formType="submit" hover-class="none">
+      <image class='commodity_img' src="{{img}}"></image>
+      <view wx:if="{{commodity.stock_count>0&&commodity.stock_count<10}}" class='tips'>即将售空</view>
+      <view wx:elif="{{commodity.stock_count<=0}}" class='tips'>已售罄</view>
+      <image wx:if="{{commodity.lable_list}}" class='tag' src="{{commodity.lable_list[0].lable_logo}}"></image>
+      <view class='commodity_message white'>
+        <text class='commodity_title'>{{title}}</text>
+        <view class='commodity_price'>
+          <text class='common-color' wx:if="{{commodity.discount_type=='0'}}">￥{{commodity.discount_price}}</text>
+          <text class='common-color' wx:elif="{{commodity.discount_type!=='0'}}">￥{{commodity.discount_price}}</text>
+          <text class='original' wx:if="{{commodity.discount_type!=='0'}}">原价：￥{{commodity.show_price}}</text>
+        </view>
+        <view class='commodity_price'>
+          <text class='alias_name' wx:if="{{commodity.alias_name}}">{{commodity.alias_name}}</text>
+        </view>
+      </view>
+    </button>
+  </form>
+
+  <!-- </navigator> -->
+</view>

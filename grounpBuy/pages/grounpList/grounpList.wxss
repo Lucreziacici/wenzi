@@ -1,0 +1,74 @@
+.tab {
+  display: flex;
+  justify-content: space-around;
+  font-size: 10pt;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f5f5f5;
+  position: fixed;
+  top: 0;
+  width: 750rpx;
+  background: white;
+}
+
+.tab view {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.tab-active {
+  color: #9c855c;
+}
+.grounpList {
+  padding: 40rpx 32rpx 0 32rpx;
+}
+
+.grounpItem navigator {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.grounpItem_img image {
+  width: 240rpx;
+  border: 1px solid #f5f5f5;
+}
+
+.grounpItem_message {
+  padding: 0 0 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.grounpItem_title {
+  font-size: 10pt;
+  color: #303030;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 35rpx;
+  vertical-align: middle;
+}
+
+.grounpItem_price text:nth-child(1) {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #f63342;
+}
+
+.grounpItem_price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.join {
+  background: #9c855c;
+  color: white;
+  padding: 10rpx 20rpx;
+  border-radius: 100rpx;
+  font-size: 10pt;
+}

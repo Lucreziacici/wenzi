@@ -1,0 +1,32 @@
+<!--pages/classify/classify.wxml-->
+<view class='classify'>
+  <view class='classifyList'>
+
+    <view bindtap="navbarTap" wx:for="{{classifyList}}" wx:key="unique" id="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}" class="classifyItem {{currentTab==index ? 'active' : ''}}">
+      <text>{{item.name}}</text>
+    </view>
+
+  </view>
+  <view class='classifyBox'>
+    <!-- <view class='classifyBoxTitle'>
+      <text>面部护理</text>
+    </view> -->
+    <view class='classifyBoxList' wx:if="{{classify}}">
+      <view class='classifyBoxItem' wx:for="{{classifyitem}}" wx:key="{{item}}">
+        <navigator hover-class='none' url="/pages/productList/productList?category_id={{item.id}}">
+          <image src='{{item.image}}'></image>
+          <text>{{item.name}}</text>
+        </navigator>
+      </view>
+    </view>
+    <view class='classifyBoxList' wx:else>
+      <view class='classifyBoxItem' wx:for="{{classifyitem}}">
+        <navigator hover-class='none' url="/pages/brand/brand?brand_code={{item.brand_code}}">
+          <image src='{{item.brand_logo}}'></image>
+          <text>{{item.short_name}}</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+<Toast id="Toast"></Toast>

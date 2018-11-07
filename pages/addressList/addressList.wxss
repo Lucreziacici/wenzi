@@ -1,0 +1,73 @@
+page{
+  background-color: #e7e7e7;
+  color: #4a4a4a;
+}
+.address-item{
+  padding:0 0 120rpx 0
+}
+.address-item-box{
+  margin: 20rpx 0 0 0;
+  padding:0 20rpx 20rpx;
+  background-color: white;
+}
+.address-user-message{
+  display: flex;
+  justify-content: space-between;
+}
+.address-address{
+  margin: 10rpx 0 0 0;
+}
+.address-user-message text,.address-address text{
+  font-size: 12pt;
+}
+.address-address text{
+  font-size: 10pt;
+}
+.address-message{
+  border-bottom: 2rpx solid #e7e7e7;
+  padding: 20rpx 0;
+}
+.address-edit{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0 0 0;
+}
+.address-checkbox image,.address-edit-option image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.address-checkbox .checkbox{
+  display: flex;
+  align-items: center;
+}
+.address-checkbox .checkbox text,.address-edit-redact text,.address-edit-delete text{
+  margin: 0 0 0 20rpx ;
+  font-size: 12pt;
+}
+.address-edit-redact navigator,.address-edit-delete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 20rpx;
+}
+.address-edit-option{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.address-checkbox{
+  display: flex;
+  align-items: center;
+}
+.common-bottom{
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9c855c; 
+  color: white;
+}
