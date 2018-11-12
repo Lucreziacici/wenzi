@@ -26,6 +26,7 @@ Page({
     userid: "", //用户id
     discount_type: "0",//团购类型
     discount_price: 0,//团购价格
+    discount_type_name:'',
     original: 0,//原始价格
     Isseckill_flag: false, //是否为秒杀活动
     Iscount: false, //是否在倒计时
@@ -117,47 +118,27 @@ Page({
               active: res.data.res_content.spec_list[i],
               Buystate: true,
               discount_type: res.data.res_content.spec_list[i].discount_type,
+              discount_price: res.data.res_content.spec_list[i].discount_price,
+              discount_type_name: res.data.res_content.spec_list[i].discount_type_name,
+              original: res.data.res_content.spec_list[i].total_price,
             });
             if (res.data.res_content.intax == '0' && res.data.res_content.inbond == '1') {
-
               this.setData({
-                discount_price: res.data.res_content.spec_list[i].discount_price,
-                original: res.data.res_content.spec_list[i].total_price,
                 tax: res.data.res_content.spec_list[i].tax
               });
-            } else if (res.data.res_content.intax == '1' && res.data.res_content.inbond == '1') {
-              var price = (res.data.res_content.spec_list[i].price + res.data.res_content.spec_list[i].tax).toFixed(2);
-              this.setData({
-                discount_price: res.data.res_content.spec_list[i].discount_price,
-                original: res.data.res_content.spec_list[i].total_price,
-              });
-            } else if (res.data.res_content.inbond == '0') {
-              this.setData({
-                discount_price: res.data.res_content.spec_list[i].discount_price,
-                original: res.data.res_content.spec_list[i].total_price,
-              });
-            }
+            } 
             break;
           } else {
+            this.setData({
+              discount_price: res.data.res_content.spec_list[i].price,
+              discount_type_name: res.data.res_content.spec_list[i].discount_type_name,
+              original: res.data.res_content.spec_list[i].total_price,
+            });
             if (res.data.res_content.intax == '0' && res.data.res_content.inbond == '1') {
-
               this.setData({
-                discount_price: res.data.res_content.spec_list[i].price,
-                original: res.data.res_content.spec_list[i].total_price,
                 tax: res.data.res_content.spec_list[i].tax
               });
-            } else if (res.data.res_content.intax == '1' && res.data.res_content.inbond == '1') {
-              var price = (res.data.res_content.spec_list[i].price + res.data.res_content.spec_list[i].tax).toFixed(2);
-              this.setData({
-                discount_price: res.data.res_content.spec_list[i].discount_price,
-                original: res.data.res_content.spec_list[i].total_price,
-              });
-            } else if (res.data.res_content.inbond == '0') {
-              this.setData({
-                discount_price: res.data.res_content.spec_list[i].discount_price,
-                original: res.data.res_content.spec_list[i].total_price,
-              });
-            }
+            } 
           }
         }
 
@@ -243,20 +224,16 @@ Page({
       repertoryMax: options.currentTarget.dataset.repertory,
       currentTab: options.currentTarget.dataset.id, //选中id
       quantity: 1,
+      discount_price: options.currentTarget.dataset.item.discount_price,
+      discount_type_name: options.currentTarget.dataset.item.discount_type_name,
+      original: options.currentTarget.dataset.item.total_price,
+      discount_type: options.currentTarget.dataset.item.discount_type,
     });
     if (this.data.product.intax == '0') {
       this.setData({
-        discount_price: options.currentTarget.dataset.item.discount_price,
-        original: options.currentTarget.dataset.item.total_price,
         tax: options.currentTarget.dataset.tax
       });
-    } else {
-      var price = (options.currentTarget.dataset.price + options.currentTarget.dataset.tax).toFixed(2);
-      this.setData({
-        discount_price: options.currentTarget.dataset.item.discount_price,
-        original: options.currentTarget.dataset.item.total_price,
-      });
-    }
+    } 
   },
   //售空
   soldout: function () {

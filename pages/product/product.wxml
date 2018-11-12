@@ -40,31 +40,26 @@
       <text class='commodity-description' wx:if="{{product.summary}}">{{product.summary}}</text>
       <view class='commodity_price_item'>
         <view class='commodityprice'>
-          <view wx:if="{{isApprove&&discount_type==0}}" class='commodity-price'>
+          <view wx:if="{{isApprove&&discount_type=='0'}}" class='commodity-price'>
             <text>￥{{discount_price}}</text>
           </view>
-          <view wx:if="{{isApprove&&discount_type==1}}" class='commodity-price'>
-            <text>vip价:￥{{discount_price}}</text>
-            <text class='original'>原价:￥{{original}}</text>
-          </view>
-          <view wx:if="{{isApprove&&discount_type==2}}" class='commodity-price'>
-            <text>上新价:￥{{discount_price}}</text>
-            <text class='original'>原价:￥{{original}}</text>
-          </view>
-          <view wx:if="{{isApprove&&discount_type==3}}" class='commodity-price'>
-            <text>活动价:￥{{discount_price}}</text>
+          <view wx:else="{{isApprove&&discount_type!=='0'}}" class='commodity-price'>
+            <text>{{discount_type_name}}:￥{{discount_price}}</text>
             <text class='original'>原价:￥{{original}}</text>
           </view>
           <view wx:if="{{product.intax=='1'&&product.inbond=='1'}}" class='tax'>
             <text>包税</text>
-            <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全场满299包邮</text>
+            <text wx-if="{{product.show_salesvolume=='Y'}}" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月销{{product.monthly_sales_volume}}笔</text>
+            <text wx-if="{{product.free_post_description}}" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{product.free_post_description}}</text>
           </view>
           <view wx:elif="{{product.intax=='0'&&product.inbond=='1'}}" class='tax'>
             <text>税费：￥{{tax}}</text>
-            <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全场满299包邮</text>
+            <text wx-if="{{product.show_salesvolume=='Y'}}" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月销{{product.monthly_sales_volume}}笔</text>
+            <text wx-if="{{product.free_post_description}}" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{product.free_post_description}}</text>
           </view>
           <view wx:else class='tax'>
-            <text decode="{{true}}" space="{{true}}">全场满299包邮</text>
+          <text wx-if="{{product.show_salesvolume=='Y'}}" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月销{{product.monthly_sales_volume}}笔</text>
+            <text wx-if="{{product.free_post_description}}" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{product.free_post_description}}</text>
           </view>
         </view>
         <view class='collect_item'>
@@ -199,7 +194,7 @@
       <image src="{{product.main_image}}"></image>
       <view class="main-message">
         <text class="main-message-price">￥{{discount_price}}</text>
-        <text wx:if="{{discount_type==1||discount_type==2||discount_type==3}}" class="original">原价:￥{{original}}</text>
+        <text wx:if="{{discount_type!=='0'}}" class="original">原价:￥{{original}}</text>
         <text class="main-message-title">{{product.brand_name}}</text>
         <text class="main-message-repertory">库存：{{repertory?repertory:'0'}}件</text>
       </view>

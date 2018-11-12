@@ -62,10 +62,12 @@ Page({
           res.data.res_content.recommend[i].category_goods_list = res.data.res_content.recommend[i].category_goods_list.slice(0, 6)
         }
       }
-      wx.setNavigationBarColor({
-        frontColor: res.data.res_content.page.font_color,
-        backgroundColor: res.data.res_content.page.navigation_bar_color
-      })
+      if (res.data.res_content.page.font_color && res.data.res_content.page.navigation_bar_color) {
+        wx.setNavigationBarColor({
+          frontColor: res.data.res_content.page.font_color,
+          backgroundColor: res.data.res_content.page.navigation_bar_color,
+        })
+      }
       this.setData({
         imgUrls: res.data.res_content.banner,
         special: res.data.res_content.recommend,

@@ -134,6 +134,10 @@
       <view>商品总价</view>
       <view> ￥{{order.goods_price}}</view>
     </view>
+    <view wx-if="{{order.discount}}" class='order-message-item'>
+          <text>优惠</text>
+          <text>￥{{order.discount}}</text>
+        </view>
   </view>
 </view>
 <!-- <view class="body-bottom">

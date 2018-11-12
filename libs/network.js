@@ -3,12 +3,12 @@ var open_id;
 
 
 //公共地址
-// var commonurl = "https://mall.shjinjia.com.cn/api/";
+var commonurl = "https://mall.shjinjia.com.cn/api/";
 //测试
-var commonurl ="https://mallt.shjinjia.com.cn/api/";
+// var commonurl ="https://mallt.shjinjia.com.cn/api/";
 //指向文慧地址
 // var commonurl = "http://10.10.200.4/MiniProgramMall.Api/api/";
-
+// var commonurl = "http://10.10.11.41/MiniProgramMall.Api/api/";
 //店铺号
 var shop_id = "4";
 
